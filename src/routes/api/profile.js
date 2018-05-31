@@ -3,6 +3,9 @@ const router = express.Router();
 const mongoose = require('mongoose');
 const passport = require('passport');
 
+// Load validation
+const validateProfileInput = require('../../validation/profile');
+
 // Load profile model
 const Profile = require('../../models/Profile');
 
@@ -18,6 +21,8 @@ router.get('/', passport.authenticate('jwt', { session: false }), (req, res) => 
     // req.user.id - come from used token on request.
     Profile
         .findOne({ user: req.user.id })
+        // This is for grab value from User Model relate to this user profile and add in response
+        .populate('user', ['name', 'avatar']) 
         .then(profile => {
             if(!profile) {
                 errors.noprofile = 'There is no profile for this user';
@@ -32,8 +37,14 @@ router.get('/', passport.authenticate('jwt', { session: false }), (req, res) => 
 // @description Create user profile
 // @access Private
 router.post('/', passport.authenticate('jwt', { session: false }), (req, res) => {
-    const errors = {};
+    const { errors, isValid } = validateProfileInput(req.body);
     
+    // Check validation
+    if(!isValid) {
+        // Return any errors with 400 status
+        return res.status(400).json(errors);
+    }
+
     // Get fields
     const profileFields = {};
     profileFields.user = req.user.id;
