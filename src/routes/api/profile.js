@@ -225,4 +225,64 @@ router.post('/education', passport.authenticate('jwt', { session: false }), (req
         })
 });
 
+// @route DELETE api/profile
+// @description Delete user and profile, used the same token to retrieve user id
+// @access Private
+router.delete('/', passport.authenticate('jwt', { session: false }), (req, res) => {
+    Profile
+        .findOneAndRemove({ user: req.user.id })
+        .then(() => {
+            User
+                .findOneAndRemove({ _id: req.user.id })
+                .then(() => {
+                    res.json({ success: true })
+                })
+                .catch(error => res.status(400).json(error));
+
+        })
+        .catch(error => res.status(400).json(error));
+});
+
+// @route DELETE api/profile/experience/:exp_id
+// @description Delete experience from profile
+// @access Private
+router.delete('/experience/:exp_id', passport.authenticate('jwt', { session: false }), (req, res) => {
+    Profile
+        .findOne({ user: req.user.id })
+        .then(profile => {
+            // Get remove index
+            const removeIndex = profile.experience
+                .map(item => item.id)
+                .indexOf(req.params.exp_id);
+            
+            // Splice out of array
+            profile.experience.splice(removeIndex, 1);
+
+            // Save
+            profile.save().then(profile => res.json(profile));
+        })
+        .catch(error => res.status(404).json(error));
+});
+
+// @route DELETE api/profile/education/:edu_id
+// @description Delete education from profile
+// @access Private
+router.delete('/education/:edu_id', passport.authenticate('jwt', { session: false }), (req, res) => {
+    Profile
+        .findOne({ user: req.user.id })
+        .then(profile => {
+            // Get remove index
+            const removeIndex = profile.education
+                .map(item => item.id)
+                .indexOf(req.params.edu_id);
+            
+            // Splice out of array
+            profile.education.splice(removeIndex, 1);
+
+            // Save
+            profile.save().then(profile => res.json(profile));
+        })
+        .catch(error => res.status(404).json(error));
+});
+
 module.exports = router;
