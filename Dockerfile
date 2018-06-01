@@ -1,4 +1,4 @@
-FROM node:carbon
+FROM node:8.10.0-alpine
 
 # Create app directory
 WORKDIR /app
@@ -18,6 +18,6 @@ RUN npm install
 # Bundle app source
 COPY src /app
 
-EXPOSE 8080
+EXPOSE 8080 9229
 #CMD [ "nodemon", "server.js" ]
 CMD [ "nodemon", "./src/server.js" ]

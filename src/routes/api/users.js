@@ -10,13 +10,24 @@ const passport = require('passport');
 const validateRegisterInput = require('../../validation/register');
 const validateLoginInput = require('../../validation/login');
 
-// Load User model
+// Load model
 const User = require('../../models/User');
 
 // @route GET api/users/
 // @description Index route
 // @access Public
 router.get('/', (req, res) => res.json({ msg: 'Users works'}));
+
+// @route GET api/users/current
+// @description Return current user
+// @access Private
+router.get('/current', passport.authenticate('jwt', { session: false }), (req, res) => {
+    res.json({
+        id: req.user.id,
+        name: req.user.name,
+        email: req.user.email
+    });
+});
 
 // @route GET api/users/register
 // @description Register user
@@ -104,7 +115,7 @@ router.post('/login', (req, res) => {
                         jwt.sign(
                             payload,
                             keys.secretOrKey,
-                            { expiresIn: 3600 },
+                            { expiresIn: 43200 }, // 12 hours
                             (error, token) => {
                                 res.json({
                                     success: true,
@@ -122,17 +133,6 @@ router.post('/login', (req, res) => {
                     }
                 });
         });
-});
-
-// @route GET api/users/current
-// @description Return current user
-// @access Private
-router.get('/current', passport.authenticate('jwt', { session: false }), (req, res) => {
-    res.json({
-        id: req.user.id,
-        name: req.user.name,
-        email: req.user.email
-    });
 });
 
 module.exports = router;

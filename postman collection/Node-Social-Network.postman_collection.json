@@ -1,0 +1,884 @@
+{
+	"info": {
+		"_postman_id": "765a2442-6a6b-4ad3-80c5-e63c68e493b7",
+		"name": "Node-Social-Network",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://localhost:8080/api/users",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "John Wick",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "johnwick@gmail.com",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "password",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "password2",
+							"value": "password",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/api/users/register",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "John Wick",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "johnwick@gmail.com",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "password",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "password2",
+							"value": "password",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/users/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"users",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/api/users/login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "email",
+							"value": "johnwick@gmail.com",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "password",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/users/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"users",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/api/users/current",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjViMTFhYjgyMzc0NzE3MDBlYTk0YWJhMCIsIm5hbWUiOiJKb2huIFdpY2siLCJhdmF0YXIiOiIvL3d3dy5ncmF2YXRhci5jb20vYXZhdGFyL2U2ZDhiOTJmYzJiNmI3M2YwYTdhYjZjZTYzMzcxZGUwP3M9MjAwJnI9cGcmZD1tbSIsImlhdCI6MTUyNzg4NDg1NSwiZXhwIjoxNTI3OTI4MDU1fQ.2bvKIhNP6HAb-e3xbnof2gb6qr8ZKRiKQI6wWD-e4I4"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "email",
+							"value": "johnwick@gmail.com",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "password",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/users/current",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"users",
+						"current"
+					]
+				},
+				"description": "Return current user base on token"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/api/profile",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjViMTFhYjgyMzc0NzE3MDBlYTk0YWJhMCIsIm5hbWUiOiJKb2huIFdpY2siLCJhdmF0YXIiOiIvL3d3dy5ncmF2YXRhci5jb20vYXZhdGFyL2U2ZDhiOTJmYzJiNmI3M2YwYTdhYjZjZTYzMzcxZGUwP3M9MjAwJnI9cGcmZD1tbSIsImlhdCI6MTUyNzg4NDg1NSwiZXhwIjoxNTI3OTI4MDU1fQ.2bvKIhNP6HAb-e3xbnof2gb6qr8ZKRiKQI6wWD-e4I4"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "email",
+							"value": "johnwick@gmail.com",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "password",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/profile",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"profile"
+					]
+				},
+				"description": "Return current user base on token"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/api/profile/all",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "email",
+							"value": "johnwick@gmail.com",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "password",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/profile/all",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"profile",
+						"all"
+					]
+				},
+				"description": "Return current user base on token"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/api/profile/handle/:handle",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "email",
+							"value": "johnwick@gmail.com",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "password",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/profile/handle/johnmiller",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"profile",
+						"handle",
+						"johnmiller"
+					]
+				},
+				"description": "Return current user base on token"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/api/profile/user/:user_id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "email",
+							"value": "johnwick@gmail.com",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "password",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/profile/user/5b11ab8237471700ea94aba0",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"profile",
+						"user",
+						"5b11ab8237471700ea94aba0"
+					]
+				},
+				"description": "Return current user base on token"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/api/profile",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjViMTFhYjgyMzc0NzE3MDBlYTk0YWJhMCIsIm5hbWUiOiJKb2huIFdpY2siLCJhdmF0YXIiOiIvL3d3dy5ncmF2YXRhci5jb20vYXZhdGFyL2U2ZDhiOTJmYzJiNmI3M2YwYTdhYjZjZTYzMzcxZGUwP3M9MjAwJnI9cGcmZD1tbSIsImlhdCI6MTUyNzg4NTYyNywiZXhwIjoxNTI3OTI4ODI3fQ.ZfA0cEbEipzoRY8jmIlqpb6L791By30EsBm98hiXyNc"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "handle",
+							"value": "wick",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "status",
+							"value": "Killer",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "skills",
+							"value": "AK-45, Single gun, Shotgun",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/profile",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"profile"
+					]
+				},
+				"description": "Return current user base on token"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/api/profile/experience",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjViMTFhYjgyMzc0NzE3MDBlYTk0YWJhMCIsIm5hbWUiOiJKb2huIFdpY2siLCJhdmF0YXIiOiIvL3d3dy5ncmF2YXRhci5jb20vYXZhdGFyL2U2ZDhiOTJmYzJiNmI3M2YwYTdhYjZjZTYzMzcxZGUwP3M9MjAwJnI9cGcmZD1tbSIsImlhdCI6MTUyNzg4NTYyNywiZXhwIjoxNTI3OTI4ODI3fQ.ZfA0cEbEipzoRY8jmIlqpb6L791By30EsBm98hiXyNc"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "title",
+							"value": "Serial killer",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "company",
+							"value": "MOB",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "from",
+							"value": "2001-05-05",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/profile/experience",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"profile",
+						"experience"
+					]
+				},
+				"description": "Return current user base on token"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/api/profile/education",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjViMTFhYjgyMzc0NzE3MDBlYTk0YWJhMCIsIm5hbWUiOiJKb2huIFdpY2siLCJhdmF0YXIiOiIvL3d3dy5ncmF2YXRhci5jb20vYXZhdGFyL2U2ZDhiOTJmYzJiNmI3M2YwYTdhYjZjZTYzMzcxZGUwP3M9MjAwJnI9cGcmZD1tbSIsImlhdCI6MTUyNzg4NTYyNywiZXhwIjoxNTI3OTI4ODI3fQ.ZfA0cEbEipzoRY8jmIlqpb6L791By30EsBm98hiXyNc"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "school",
+							"value": "Law",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "degree",
+							"value": "Law",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "fieldofstudy",
+							"value": "Law",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "from",
+							"value": "2001-05-05",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/profile/education",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"profile",
+						"education"
+					]
+				},
+				"description": "Return current user base on token"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/api/profile/education",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjViMTFhYjgyMzc0NzE3MDBlYTk0YWJhMCIsIm5hbWUiOiJKb2huIFdpY2siLCJhdmF0YXIiOiIvL3d3dy5ncmF2YXRhci5jb20vYXZhdGFyL2U2ZDhiOTJmYzJiNmI3M2YwYTdhYjZjZTYzMzcxZGUwP3M9MjAwJnI9cGcmZD1tbSIsImlhdCI6MTUyNzg4NTYyNywiZXhwIjoxNTI3OTI4ODI3fQ.ZfA0cEbEipzoRY8jmIlqpb6L791By30EsBm98hiXyNc"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:8080/api/profile",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"profile"
+					]
+				},
+				"description": "Return current user base on token"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/api/profile/experience/:exp_id",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjViMTFhYjgyMzc0NzE3MDBlYTk0YWJhMCIsIm5hbWUiOiJKb2huIFdpY2siLCJhdmF0YXIiOiIvL3d3dy5ncmF2YXRhci5jb20vYXZhdGFyL2U2ZDhiOTJmYzJiNmI3M2YwYTdhYjZjZTYzMzcxZGUwP3M9MjAwJnI9cGcmZD1tbSIsImlhdCI6MTUyNzg4NTYyNywiZXhwIjoxNTI3OTI4ODI3fQ.ZfA0cEbEipzoRY8jmIlqpb6L791By30EsBm98hiXyNc"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:8080/api/profile/experience/5b11b06a37471700ea94aba3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"profile",
+						"experience",
+						"5b11b06a37471700ea94aba3"
+					]
+				},
+				"description": "Return current user base on token"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/api/profile/education/:edu_id",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjViMTFhYjgyMzc0NzE3MDBlYTk0YWJhMCIsIm5hbWUiOiJKb2huIFdpY2siLCJhdmF0YXIiOiIvL3d3dy5ncmF2YXRhci5jb20vYXZhdGFyL2U2ZDhiOTJmYzJiNmI3M2YwYTdhYjZjZTYzMzcxZGUwP3M9MjAwJnI9cGcmZD1tbSIsImlhdCI6MTUyNzg4NTYyNywiZXhwIjoxNTI3OTI4ODI3fQ.ZfA0cEbEipzoRY8jmIlqpb6L791By30EsBm98hiXyNc"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:8080/api/profile/education/5b11b06a37471700ea94aba3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"profile",
+						"education",
+						"5b11b06a37471700ea94aba3"
+					]
+				},
+				"description": "Return current user base on token"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/api/posts",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:8080/api/posts",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"posts"
+					]
+				},
+				"description": "Return current user base on token"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/api/posts/:id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:8080/api/posts/5b103e499a8d7e500c2ffca1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"posts",
+						"5b103e499a8d7e500c2ffca1"
+					]
+				},
+				"description": "Return current user base on token"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/api/posts",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjViMTFhYjgyMzc0NzE3MDBlYTk0YWJhMCIsIm5hbWUiOiJKb2huIFdpY2siLCJhdmF0YXIiOiIvL3d3dy5ncmF2YXRhci5jb20vYXZhdGFyL2U2ZDhiOTJmYzJiNmI3M2YwYTdhYjZjZTYzMzcxZGUwP3M9MjAwJnI9cGcmZD1tbSIsImlhdCI6MTUyNzg4NTYyNywiZXhwIjoxNTI3OTI4ODI3fQ.ZfA0cEbEipzoRY8jmIlqpb6L791By30EsBm98hiXyNc"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "text",
+							"value": "Lorem Ipsum Lorem Tantum",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/posts",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"posts"
+					]
+				},
+				"description": "Return current user base on token"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/api/posts/like/:id",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjViMTFhYjgyMzc0NzE3MDBlYTk0YWJhMCIsIm5hbWUiOiJKb2huIFdpY2siLCJhdmF0YXIiOiIvL3d3dy5ncmF2YXRhci5jb20vYXZhdGFyL2U2ZDhiOTJmYzJiNmI3M2YwYTdhYjZjZTYzMzcxZGUwP3M9MjAwJnI9cGcmZD1tbSIsImlhdCI6MTUyNzg4NTYyNywiZXhwIjoxNTI3OTI4ODI3fQ.ZfA0cEbEipzoRY8jmIlqpb6L791By30EsBm98hiXyNc"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "text",
+							"value": "Lorem Ipsum Lorem Tantum",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/posts/like/5b11b31237471700ea94aba4",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"posts",
+						"like",
+						"5b11b31237471700ea94aba4"
+					]
+				},
+				"description": "Return current user base on token"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/api/posts/unlike/:id",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjViMTFhYjgyMzc0NzE3MDBlYTk0YWJhMCIsIm5hbWUiOiJKb2huIFdpY2siLCJhdmF0YXIiOiIvL3d3dy5ncmF2YXRhci5jb20vYXZhdGFyL2U2ZDhiOTJmYzJiNmI3M2YwYTdhYjZjZTYzMzcxZGUwP3M9MjAwJnI9cGcmZD1tbSIsImlhdCI6MTUyNzg4NTYyNywiZXhwIjoxNTI3OTI4ODI3fQ.ZfA0cEbEipzoRY8jmIlqpb6L791By30EsBm98hiXyNc"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "text",
+							"value": "Lorem Ipsum Lorem Tantum",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/posts/unlike/5b11b31237471700ea94aba4",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"posts",
+						"unlike",
+						"5b11b31237471700ea94aba4"
+					]
+				},
+				"description": "Return current user base on token"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/api/posts/comment/:id",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjViMTFhYjgyMzc0NzE3MDBlYTk0YWJhMCIsIm5hbWUiOiJKb2huIFdpY2siLCJhdmF0YXIiOiIvL3d3dy5ncmF2YXRhci5jb20vYXZhdGFyL2U2ZDhiOTJmYzJiNmI3M2YwYTdhYjZjZTYzMzcxZGUwP3M9MjAwJnI9cGcmZD1tbSIsImlhdCI6MTUyNzg4NTYyNywiZXhwIjoxNTI3OTI4ODI3fQ.ZfA0cEbEipzoRY8jmIlqpb6L791By30EsBm98hiXyNc"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "text",
+							"value": "Lorem Ipsum Lorem Tantum",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/posts/comment/5b11b31237471700ea94aba4",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"posts",
+						"comment",
+						"5b11b31237471700ea94aba4"
+					]
+				},
+				"description": "Return current user base on token"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/api/posts/:id",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjViMTFhYjgyMzc0NzE3MDBlYTk0YWJhMCIsIm5hbWUiOiJKb2huIFdpY2siLCJhdmF0YXIiOiIvL3d3dy5ncmF2YXRhci5jb20vYXZhdGFyL2U2ZDhiOTJmYzJiNmI3M2YwYTdhYjZjZTYzMzcxZGUwP3M9MjAwJnI9cGcmZD1tbSIsImlhdCI6MTUyNzg4NTYyNywiZXhwIjoxNTI3OTI4ODI3fQ.ZfA0cEbEipzoRY8jmIlqpb6L791By30EsBm98hiXyNc"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "text",
+							"value": "Lorem Ipsum Lorem Tantum",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/posts/5b11b31237471700ea94aba4",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"posts",
+						"5b11b31237471700ea94aba4"
+					]
+				},
+				"description": "Return current user base on token"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/api/posts/comment/:id/:comment_id",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjViMTFhYjgyMzc0NzE3MDBlYTk0YWJhMCIsIm5hbWUiOiJKb2huIFdpY2siLCJhdmF0YXIiOiIvL3d3dy5ncmF2YXRhci5jb20vYXZhdGFyL2U2ZDhiOTJmYzJiNmI3M2YwYTdhYjZjZTYzMzcxZGUwP3M9MjAwJnI9cGcmZD1tbSIsImlhdCI6MTUyNzg4NTYyNywiZXhwIjoxNTI3OTI4ODI3fQ.ZfA0cEbEipzoRY8jmIlqpb6L791By30EsBm98hiXyNc"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "text",
+							"value": "Lorem Ipsum Lorem Tantum",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/posts/comment/5b11b31237471700ea94aba4/5b11b45f6b76dd011a01b8d0",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"posts",
+						"comment",
+						"5b11b31237471700ea94aba4",
+						"5b11b45f6b76dd011a01b8d0"
+					]
+				},
+				"description": "Return current user base on token"
+			},
+			"response": []
+		}
+	]
+}
