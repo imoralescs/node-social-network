@@ -2,13 +2,18 @@ import React from 'react';
 import ReactDOMServer from 'react-dom/server';
 import regeneratorRuntime from "regenerator-runtime";
 import App from '../containers/App';
+import url from '../config';
+import axios from 'axios';
 
 const serverRender = async () => {
+    const response = await axios.get(`${url.development}/api/profile/all`);
     return {
         initialMarkup: ReactDOMServer.renderToString(
             <App />
         ),
-        initialData: {}
+        initialData: {
+            data: response.data
+        }
     }
 };
 

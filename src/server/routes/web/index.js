@@ -13,19 +13,8 @@ const router = express.Router();
 // @description Display index
 // @access Public
 router.get('/', async (req, res) => {
-    // Loads a template.
-    /*
-    const pathToHtml = path.join(__dirname, '../../views/index.html');
-    const template = fs.readFileSync(pathToHtml, 'utf8');
-    
-    // Inserts a rendered react component to the loaded template (server-side rendering).
-    const renderedHelloWorld = renderToString(<App />);
-    const page = template.replace('<!-- CONTENT -->', renderedHelloWorld);
-    
-    res.status(200).send(page);
-    */
    const initialContent = await serverRender();
-   response.render('index', { ...initialContent });
+   res.render('index', { ...initialContent });
 });
 
 module.exports = router;

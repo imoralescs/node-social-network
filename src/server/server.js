@@ -1,35 +1,35 @@
-'use strict';
+import express from 'express';
+import mongoose from 'mongoose';
+import bodyParser from 'body-parser';
+import passport from 'passport';
+import path from 'path';
 
-const express = require('express');
-const mongoose = require('mongoose');
-const bodyParser = require('body-parser');
-const passport = require('passport');
+//-- Database Config
+import database from './config/keys';
+
+// Connect to MLab MongoDB
+mongoose
+  .connect(database.mongoURI)
+  .then(() => console.log('MongoDB connected'))
+  .catch(error => console.log(error));
 
 //-- Constants
 const PORT = 8080;
 const HOST = '0.0.0.0';
 
-//-- Database Config
-const database = require('./config/keys').mongoURI;
-
-// Connect to MLab MongoDB
-mongoose
-  .connect(database)
-  .then(() => console.log('MongoDB connected'))
-  .catch(error => console.log(error));
-
 //-- Routes
 // Define routes
-const index = require('./routes/web/index');
-const users = require('./routes/api/users');
-const profile = require('./routes/api/profile');
-const posts = require('./routes/api/posts');
+import index from './routes/web/index';
+import users from './routes/api/users';
+import profile from './routes/api/profile';
+import posts from './routes/api/posts';
 
 //-- App
 const app = express();
 
 //-- View
-app.use(express.static('public'));
+app.use(express.static('src/server/public'));
+app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
 
 //-- Middleware
@@ -40,8 +40,9 @@ app.use(bodyParser.json());
 // Passport middleware
 app.use(passport.initialize());
 
-// Passport config
-require('./config/passport')(passport);
+// Import and init passport config
+import initPassport from './config/passport';
+initPassport(passport);
 
 // Set routes
 app.use('/', index);

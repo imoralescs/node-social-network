@@ -4,12 +4,10 @@
   "description": "Node web app.",
   "main": "server.js",
   "scripts": {
-    "start": "node ./dist/server/server.js",
     "dev": "concurrently 'npm run build:client:dev' 'npm run build:server:dev' 'nodemon ./dist/server/server.js'",
-    "build:client:dev": "webpack --config webpack.config.js --profile --colors",
+    "build:client:dev": "webpack --config webpack.config.js --profile",
     "build:server:dev": "babel src -d dist --copy-files --ignore '**/*.test.js' --watch"
   },
-  "proxy": "http://0.0.0.0:8080",
   "author": "Israel Morales <imoralescs@gmail.com>",
   "dependencies": {
     "axios": "^0.18.0",

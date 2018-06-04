@@ -4,7 +4,6 @@ import axios from 'axios';
 //const App = () => (<div>Helloo</div>);
 
 class App extends React.Component {
-
     render() {
         return(<div>Hello</div>);
     }

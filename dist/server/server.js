@@ -1,54 +1,94 @@
 'use strict';
 
-var express = require('express');
-var mongoose = require('mongoose');
-var bodyParser = require('body-parser');
-var passport = require('passport');
+var _express = require('express');
 
-//-- Constants
-var PORT = 8080;
-var HOST = '0.0.0.0';
+var _express2 = _interopRequireDefault(_express);
 
-//-- Database Config
-var database = require('./config/keys').mongoURI;
+var _mongoose = require('mongoose');
+
+var _mongoose2 = _interopRequireDefault(_mongoose);
+
+var _bodyParser = require('body-parser');
+
+var _bodyParser2 = _interopRequireDefault(_bodyParser);
+
+var _passport = require('passport');
+
+var _passport2 = _interopRequireDefault(_passport);
+
+var _path = require('path');
+
+var _path2 = _interopRequireDefault(_path);
+
+var _keys = require('./config/keys');
+
+var _keys2 = _interopRequireDefault(_keys);
+
+var _index = require('./routes/web/index');
+
+var _index2 = _interopRequireDefault(_index);
+
+var _users = require('./routes/api/users');
+
+var _users2 = _interopRequireDefault(_users);
+
+var _profile = require('./routes/api/profile');
+
+var _profile2 = _interopRequireDefault(_profile);
+
+var _posts = require('./routes/api/posts');
+
+var _posts2 = _interopRequireDefault(_posts);
+
+var _passport3 = require('./config/passport');
+
+var _passport4 = _interopRequireDefault(_passport3);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 // Connect to MLab MongoDB
-mongoose.connect(database).then(function () {
+_mongoose2.default.connect(_keys2.default.mongoURI).then(function () {
   return console.log('MongoDB connected');
 }).catch(function (error) {
   return console.log(error);
 });
 
+//-- Constants
+
+
+//-- Database Config
+var PORT = 8080;
+var HOST = '0.0.0.0';
+
 //-- Routes
 // Define routes
-var index = require('./routes/web/index');
-var users = require('./routes/api/users');
-var profile = require('./routes/api/profile');
-var posts = require('./routes/api/posts');
+
 
 //-- App
-var app = express();
+var app = (0, _express2.default)();
 
 //-- View
-app.use(express.static('public'));
+app.use(_express2.default.static('src/server/public'));
+app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
 
 //-- Middleware
 // Body parser middleware
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
+app.use(_bodyParser2.default.urlencoded({ extended: false }));
+app.use(_bodyParser2.default.json());
 
 // Passport middleware
-app.use(passport.initialize());
+app.use(_passport2.default.initialize());
 
-// Passport config
-require('./config/passport')(passport);
+// Import and init passport config
+
+(0, _passport4.default)(_passport2.default);
 
 // Set routes
-app.use('/', index);
-app.use('/api/users', users);
-app.use('/api/profile', profile);
-app.use('/api/posts', posts);
+app.use('/', _index2.default);
+app.use('/api/users', _users2.default);
+app.use('/api/profile', _profile2.default);
+app.use('/api/posts', _posts2.default);
 
 //-- Logs
 app.listen(PORT, HOST);

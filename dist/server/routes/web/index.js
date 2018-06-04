@@ -42,31 +42,31 @@ var router = _express2.default.Router();
 // @description Display index
 // @access Public
 router.get('/', function () {
-    var _ref = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime2.default.mark(function _callee(req, res) {
-        var initialContent;
-        return _regeneratorRuntime2.default.wrap(function _callee$(_context) {
-            while (1) {
-                switch (_context.prev = _context.next) {
-                    case 0:
-                        _context.next = 2;
-                        return (0, _renderers2.default)();
+   var _ref = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime2.default.mark(function _callee(req, res) {
+      var initialContent;
+      return _regeneratorRuntime2.default.wrap(function _callee$(_context) {
+         while (1) {
+            switch (_context.prev = _context.next) {
+               case 0:
+                  _context.next = 2;
+                  return (0, _renderers2.default)();
 
-                    case 2:
-                        initialContent = _context.sent;
+               case 2:
+                  initialContent = _context.sent;
 
-                        response.render('index', _extends({}, initialContent));
+                  res.render('index', _extends({}, initialContent));
 
-                    case 4:
-                    case 'end':
-                        return _context.stop();
-                }
+               case 4:
+               case 'end':
+                  return _context.stop();
             }
-        }, _callee, undefined);
-    }));
+         }
+      }, _callee, undefined);
+   }));
 
-    return function (_x, _x2) {
-        return _ref.apply(this, arguments);
-    };
+   return function (_x, _x2) {
+      return _ref.apply(this, arguments);
+   };
 }());
 
 module.exports = router;
