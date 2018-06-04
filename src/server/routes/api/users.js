@@ -16,7 +16,7 @@ const User = require('../../models/User');
 // @route GET api/users/
 // @description Index route
 // @access Public
-router.get('/', (req, res) => res.json({ msg: 'Users works'}));
+router.get('/', (req, res) => res.json({ msg: 'Users worksss'}));
 
 // @route GET api/users/current
 // @description Return current user

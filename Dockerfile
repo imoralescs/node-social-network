@@ -20,4 +20,4 @@ COPY src /app
 
 EXPOSE 8080 9229
 #CMD [ "nodemon", "server.js" ]
-CMD [ "nodemon", "./src/server.js" ]
+CMD [ "nodemon", "./src/server/server.js" ]

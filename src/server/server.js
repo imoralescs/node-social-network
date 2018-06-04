@@ -20,12 +20,17 @@ mongoose
 
 //-- Routes
 // Define routes
+const index = require('./routes/web/index');
 const users = require('./routes/api/users');
 const profile = require('./routes/api/profile');
 const posts = require('./routes/api/posts');
 
 //-- App
 const app = express();
+
+//-- View
+app.use(express.static('public'));
+app.set('view engine', 'ejs');
 
 //-- Middleware
 // Body parser middleware
@@ -39,6 +44,7 @@ app.use(passport.initialize());
 require('./config/passport')(passport);
 
 // Set routes
+app.use('/', index);
 app.use('/api/users', users);
 app.use('/api/profile', profile);
 app.use('/api/posts', posts);
