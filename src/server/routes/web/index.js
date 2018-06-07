@@ -13,8 +13,14 @@ const router = express.Router();
 // @description Display index
 // @access Public
 router.get('/', async (req, res) => {
-   const initialContent = await serverRender();
-   res.render('index', { ...initialContent });
+   //const initialContent = await serverRender(req, res);
+   //res.render('index', { ...initialContent });
+   
+   const initialContent = {
+       initialMarkup: {},
+       initialData: {}
+    };
+    res.render('index', { ...initialContent });
 });
 
 module.exports = router;

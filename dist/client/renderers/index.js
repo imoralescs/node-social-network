@@ -12,6 +12,8 @@ var _server = require('react-dom/server');
 
 var _server2 = _interopRequireDefault(_server);
 
+var _reactRouter = require('react-router');
+
 var _regeneratorRuntime = require('regenerator-runtime');
 
 var _regeneratorRuntime2 = _interopRequireDefault(_regeneratorRuntime);
@@ -33,8 +35,8 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
 
 var serverRender = function () {
-    var _ref = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime2.default.mark(function _callee() {
-        var response;
+    var _ref = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime2.default.mark(function _callee(req, res) {
+        var response, context, html;
         return _regeneratorRuntime2.default.wrap(function _callee$(_context) {
             while (1) {
                 switch (_context.prev = _context.next) {
@@ -44,14 +46,30 @@ var serverRender = function () {
 
                     case 2:
                         response = _context.sent;
-                        return _context.abrupt('return', {
-                            initialMarkup: _server2.default.renderToString(_react2.default.createElement(_App2.default, null)),
+                        context = {};
+                        html = {
+                            initialMarkup: _server2.default.renderToString(_react2.default.createElement(
+                                _reactRouter.StaticRouter,
+                                { location: req.url, context: context },
+                                _react2.default.createElement(_App2.default, null)
+                            )),
                             initialData: {
                                 data: response.data
                             }
-                        });
+                        };
 
-                    case 4:
+
+                        if (context.url) {
+                            res.writeHead(302, {
+                                Location: context.url
+                            });
+                            res.end();
+                        } else {
+                            res.write(html);
+                            res.end();
+                        }
+
+                    case 6:
                     case 'end':
                         return _context.stop();
                 }
@@ -59,7 +77,7 @@ var serverRender = function () {
         }, _callee, undefined);
     }));
 
-    return function serverRender() {
+    return function serverRender(_x, _x2) {
         return _ref.apply(this, arguments);
     };
 }();

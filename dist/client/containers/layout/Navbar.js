@@ -10,28 +10,6 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactRouterDom = require('react-router-dom');
-
-var _Navbar = require('../components/layout/Navbar');
-
-var _Navbar2 = _interopRequireDefault(_Navbar);
-
-var _Landing = require('../components/layout/Landing');
-
-var _Landing2 = _interopRequireDefault(_Landing);
-
-var _Footer = require('../components/layout/Footer');
-
-var _Footer2 = _interopRequireDefault(_Footer);
-
-var _Login = require('../components/auth/Login');
-
-var _Login2 = _interopRequireDefault(_Login);
-
-var _Register = require('../components/auth/Register');
-
-var _Register2 = _interopRequireDefault(_Register);
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -40,39 +18,48 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var App = function (_Component) {
-    _inherits(App, _Component);
+var Navbar = function (_Component) {
+    _inherits(Navbar, _Component);
 
-    function App() {
-        _classCallCheck(this, App);
+    function Navbar() {
+        _classCallCheck(this, Navbar);
 
-        return _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).apply(this, arguments));
+        return _possibleConstructorReturn(this, (Navbar.__proto__ || Object.getPrototypeOf(Navbar)).apply(this, arguments));
     }
 
-    _createClass(App, [{
+    _createClass(Navbar, [{
         key: 'render',
         value: function render() {
             return _react2.default.createElement(
-                _reactRouterDom.BrowserRouter,
+                'nav',
                 null,
                 _react2.default.createElement(
-                    'div',
-                    { className: 'App' },
-                    _react2.default.createElement(_Navbar2.default, null),
-                    _react2.default.createElement(_reactRouterDom.Route, { exect: true, path: '/', component: _Landing2.default }),
+                    'ul',
+                    null,
                     _react2.default.createElement(
-                        'div',
+                        'li',
                         null,
-                        _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/register', component: _Register2.default }),
-                        _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/login', component: _Login2.default })
+                        _react2.default.createElement(
+                            'a',
+                            { href: '#' },
+                            'Sign Up'
+                        )
                     ),
-                    _react2.default.createElement(_Footer2.default, null)
+                    _react2.default.createElement(
+                        'li',
+                        null,
+                        _react2.default.createElement(
+                            'a',
+                            { href: '#' },
+                            'Login'
+                        )
+                    )
                 )
             );
         }
     }]);
 
-    return App;
+    return Navbar;
 }(_react.Component);
 
-exports.default = App;
+exports.default = Navbar;
