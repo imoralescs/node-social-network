@@ -32,6 +32,60 @@ var Navbar = function (_Component) {
     _createClass(Navbar, [{
         key: 'render',
         value: function render() {
+            var _this2 = this;
+
+            var _props$state$auth = this.props.state.auth,
+                isAuthenticated = _props$state$auth.isAuthenticated,
+                user = _props$state$auth.user;
+
+            var authLinks = _react2.default.createElement(
+                'ul',
+                null,
+                _react2.default.createElement(
+                    'li',
+                    null,
+                    _react2.default.createElement(
+                        'span',
+                        null,
+                        user.name
+                    )
+                ),
+                _react2.default.createElement(
+                    'li',
+                    null,
+                    _react2.default.createElement(
+                        'a',
+                        { href: '#', onClick: function onClick(event) {
+                                event.preventDefault();
+                                _this2.props.clearCurrentProfile();
+                                _this2.props.logoutUser();
+                            } },
+                        'Logout'
+                    )
+                )
+            );
+            var guestLinks = _react2.default.createElement(
+                'ul',
+                null,
+                _react2.default.createElement(
+                    'li',
+                    null,
+                    _react2.default.createElement(
+                        _reactRouterDom.Link,
+                        { to: '/register' },
+                        'Sign Up'
+                    )
+                ),
+                _react2.default.createElement(
+                    'li',
+                    null,
+                    _react2.default.createElement(
+                        _reactRouterDom.Link,
+                        { to: '/login' },
+                        'Login'
+                    )
+                )
+            );
             return _react2.default.createElement(
                 'nav',
                 null,
@@ -44,28 +98,7 @@ var Navbar = function (_Component) {
                         'Home'
                     )
                 ),
-                _react2.default.createElement(
-                    'ul',
-                    null,
-                    _react2.default.createElement(
-                        'li',
-                        null,
-                        _react2.default.createElement(
-                            _reactRouterDom.Link,
-                            { to: '/register' },
-                            'Sign Up'
-                        )
-                    ),
-                    _react2.default.createElement(
-                        'li',
-                        null,
-                        _react2.default.createElement(
-                            _reactRouterDom.Link,
-                            { to: '/login' },
-                            'Login'
-                        )
-                    )
-                )
+                isAuthenticated ? authLinks : guestLinks
             );
         }
     }]);

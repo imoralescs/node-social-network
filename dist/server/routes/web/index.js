@@ -18,16 +18,6 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
-var _server = require('react-dom/server');
-
-var _App = require('../../../client/containers/App');
-
-var _App2 = _interopRequireDefault(_App);
-
-var _renderers = require('../../../client/renderers');
-
-var _renderers2 = _interopRequireDefault(_renderers);
-
 var _regeneratorRuntime = require('regenerator-runtime');
 
 var _regeneratorRuntime2 = _interopRequireDefault(_regeneratorRuntime);

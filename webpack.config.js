@@ -4,7 +4,7 @@ module.exports = {
     mode: 'development',
     entry: [
         'babel-polyfill',
-        './src/client'
+        './src/client/index.js'
     ],
     output: {
         path: path.join(__dirname, 'src/server/public'),
