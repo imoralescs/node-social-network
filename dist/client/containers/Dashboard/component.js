@@ -42,6 +42,10 @@ function Dashboard(props) {
         profile = _props$state$profile.profile,
         loading = _props$state$profile.loading;
     var user = props.state.auth.user;
+    var text = props.text,
+        _onChange = props._onChange,
+        _onSubmit = props._onSubmit,
+        errors = props.errors;
 
     var dashboardContent = void 0;
 
@@ -86,6 +90,39 @@ function Dashboard(props) {
                     _reactRouterDom.Link,
                     { to: '/dashboard/delete-profile' },
                     'Delete Profile'
+                ),
+                _react2.default.createElement(
+                    'div',
+                    null,
+                    _react2.default.createElement(
+                        'h2',
+                        null,
+                        'Write a post'
+                    ),
+                    _react2.default.createElement(
+                        'form',
+                        { onSubmit: _onSubmit },
+                        _react2.default.createElement(
+                            'div',
+                            null,
+                            _react2.default.createElement(
+                                'label',
+                                null,
+                                'Post text'
+                            ),
+                            _react2.default.createElement('input', {
+                                type: 'text',
+                                name: 'text',
+                                value: text,
+                                onChange: _onChange }),
+                            _react2.default.createElement(
+                                'span',
+                                null,
+                                errors.text ? errors.text : ''
+                            )
+                        ),
+                        _react2.default.createElement('input', { type: 'submit' })
+                    )
                 )
             );
         } else {

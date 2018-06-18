@@ -98,6 +98,15 @@ var Navbar = function (_Component) {
                         'Home'
                     )
                 ),
+                _react2.default.createElement(
+                    'div',
+                    null,
+                    _react2.default.createElement(
+                        _reactRouterDom.Link,
+                        { to: '/profiles' },
+                        'Profiles'
+                    )
+                ),
                 isAuthenticated ? authLinks : guestLinks
             );
         }

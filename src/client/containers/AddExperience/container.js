@@ -19,9 +19,9 @@ function handlers(WrappedComponent) {
     state = {
         company: '',
         title: '',
-        location: '',
-        from: '',
-        to: '',
+        locationExperience: '',
+        from: '2001-05-05',
+        to: '2001-05-05',
         current: false,
         description: '',
         errors: {},
@@ -42,20 +42,37 @@ function handlers(WrappedComponent) {
         });
     }
 
+    _onCheckboxChange = (event) => {
+      this.setState({
+        current: event.target.checked
+      });
+    }
+
     _onSubmit = (event) => {
         event.preventDefault();
-
-        console.log('add experince');
+        const experienceData = {
+          company: this.state.company,
+          title: this.state.title,
+          location: this.state.locationExperience,
+          from: this.state.from,
+          to: this.state.to,
+          current: this.state.current,
+          description: this.state.description,
+        }
+        this.props.addExperience(
+          experienceData, 
+          this.props.history
+        );
     }
         
     render() {
-      console.log(this.props);
       return (
         <WrappedComponent
           {...this.state}
           {...this.props}
           _onChange={this._onChange}
           _onSubmit={this._onSubmit}
+          _onCheckboxChange={this._onCheckboxChange}
         />
       );
     }

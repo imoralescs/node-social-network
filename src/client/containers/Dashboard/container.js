@@ -16,21 +16,51 @@ function mapDispatchToProps(dispatch) {
 
 function handlers(WrappedComponent) {
   return class extends React.Component {
+    state = {
+      text: '',
+      errors: {}
+    } 
+    
     componentDidMount() {
       this.props.getCurrentProfile();
     }
     
     componentWillReceiveProps(nextProps) {
+      if(nextProps.state.error !== this.props.state.error) {
+        this.setState({
+          errors : nextProps.state.error.errors
+        })
+      }
+
       if(!nextProps.state.auth.isAuthenticated) {
         this.props.history.push('/login');
       }
     }
+
+    _onChange = (event) => {
+      this.setState({ 
+        [event.target.name]: event.target.value 
+      });
+  }
+
+  _onSubmit = (event) => {
+      event.preventDefault();
+
+      const postData = {
+        text : this.state.text
+      }
+
+      this.props.addPost(postData);
+  }
     
     render() {
+      console.log(this.props)
       return (
         <WrappedComponent
           {...this.state}
           {...this.props}
+          _onChange={this._onChange}
+          _onSubmit={this._onSubmit}
         />
       );
     }

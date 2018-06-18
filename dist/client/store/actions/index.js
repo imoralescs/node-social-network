@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-exports.clearCurrentProfile = exports.setProfileLoading = exports.getCurrentProfile = exports.deleteProfile = exports.createProfile = exports.setCurrentUser = exports.logoutUser = exports.loginUser = exports.registerUser = undefined;
+exports.addPost = exports.addEducation = exports.addExperience = exports.clearCurrentProfile = exports.setProfileLoading = exports.getProfiles = exports.getCurrentProfile = exports.deleteProfile = exports.createProfile = exports.setCurrentUser = exports.logoutUser = exports.loginUser = exports.registerUser = undefined;
 
 var _axios = require('axios');
 
@@ -175,6 +175,24 @@ var getCurrentProfile = exports.getCurrentProfile = function getCurrentProfile()
     };
 };
 
+// Get all profiles
+var getProfiles = exports.getProfiles = function getProfiles() {
+    return function (dispatch) {
+        dispatch(setProfileLoading());
+        _axios2.default.get(_config2.default.development + '/api/profile/all').then(function (response) {
+            return dispatch({
+                type: 'GET_PROFILES',
+                payload: response.data
+            });
+        }).catch(function (error) {
+            return dispatch({
+                type: 'GET_PROFILES',
+                payload: {}
+            });
+        });
+    };
+};
+
 // Profile loading
 var setProfileLoading = exports.setProfileLoading = function setProfileLoading() {
     return {
@@ -186,5 +204,65 @@ var setProfileLoading = exports.setProfileLoading = function setProfileLoading()
 var clearCurrentProfile = exports.clearCurrentProfile = function clearCurrentProfile() {
     return {
         type: 'CLEAR_CURRENT_PROFILE'
+    };
+};
+
+// Add Experience
+var addExperience = exports.addExperience = function addExperience(experienceData, history) {
+    return function (dispatch) {
+        _axios2.default.post(_config2.default.development + '/api/profile/experience', experienceData).then(function (response) {
+            dispatch({
+                type: 'GET_PROFILE',
+                payload: response.data
+            });
+            return response;
+        }).then(function (response) {
+            history.push('/dashboard');
+            return response;
+        }).catch(function (error) {
+            return dispatch({
+                type: 'ERROR',
+                payload: error.response.data
+            });
+        });
+    };
+};
+
+// Add Education
+var addEducation = exports.addEducation = function addEducation(educationData, history) {
+    return function (dispatch) {
+        _axios2.default.post(_config2.default.development + '/api/profile/education', educationData).then(function (response) {
+            dispatch({
+                type: 'GET_PROFILE',
+                payload: response.data
+            });
+            return response;
+        }).then(function (response) {
+            history.push('/dashboard');
+            return response;
+        }).catch(function (error) {
+            return dispatch({
+                type: 'ERROR',
+                payload: error.response.data
+            });
+        });
+    };
+};
+
+// Add Post
+var addPost = exports.addPost = function addPost(postData) {
+    return function (dispatch) {
+        _axios2.default.post(_config2.default.development + '/api/posts', postData).then(function (response) {
+            dispatch({
+                type: 'ADD_POST',
+                payload: response.data
+            });
+            return response;
+        }).catch(function (error) {
+            return dispatch({
+                type: 'ERROR',
+                payload: error.response.data
+            });
+        });
     };
 };

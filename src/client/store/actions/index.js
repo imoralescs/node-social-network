@@ -154,6 +154,21 @@ export const getCurrentProfile = () => dispatch => {
         }));
 }
 
+// Get all profiles
+export const getProfiles = () => dispatch => {
+    dispatch(setProfileLoading());
+    axios
+        .get(`${url.development}/api/profile/all`)
+        .then(response => dispatch({
+            type: 'GET_PROFILES',
+            payload: response.data
+        }))
+        .catch(error => dispatch({
+            type: 'GET_PROFILES',
+            payload: {}
+        }));
+}
+
 // Profile loading
 export const setProfileLoading = () => {
     return {
@@ -166,4 +181,63 @@ export const clearCurrentProfile = () => {
     return {
         type: 'CLEAR_CURRENT_PROFILE'
     }
+}
+
+// Add Experience
+export const addExperience = (experienceData, history) => dispatch => {
+    axios
+        .post(`${url.development}/api/profile/experience`, experienceData)
+        .then(response => {
+            dispatch({
+                type: 'GET_PROFILE',
+                payload: response.data
+            });
+            return response;
+        })
+        .then(response => {
+            history.push('/dashboard');
+            return response;
+        })
+        .catch(error => dispatch({
+            type: 'ERROR',
+            payload: error.response.data
+        }));
+}
+
+// Add Education
+export const addEducation = (educationData, history) => dispatch => {
+    axios
+        .post(`${url.development}/api/profile/education`, educationData)
+        .then(response => {
+            dispatch({
+                type: 'GET_PROFILE',
+                payload: response.data
+            });
+            return response;
+        })
+        .then(response => {
+            history.push('/dashboard');
+            return response;
+        })
+        .catch(error => dispatch({
+            type: 'ERROR',
+            payload: error.response.data
+        }));
+}
+
+// Add Post
+export const addPost = (postData) => dispatch => {
+    axios
+        .post(`${url.development}/api/posts`, postData)
+        .then(response => {
+            dispatch({
+                type: 'ADD_POST',
+                payload: response.data
+            });
+            return response;
+        })
+        .catch(error => dispatch({
+            type: 'ERROR',
+            payload: error.response.data
+        }));
 }

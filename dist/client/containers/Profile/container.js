@@ -26,8 +26,6 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
@@ -59,54 +57,13 @@ function handlers(WrappedComponent) {
         args[_key] = arguments[_key];
       }
 
-      return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = _class2.__proto__ || Object.getPrototypeOf(_class2)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
-        company: '',
-        title: '',
-        locationExperience: '',
-        from: '2001-05-05',
-        to: '2001-05-05',
-        current: false,
-        description: '',
-        errors: {},
-        disabled: false
-      }, _this._onChange = function (event) {
-        _this.setState(_defineProperty({}, event.target.name, event.target.value));
-      }, _this._onCheckboxChange = function (event) {
-        _this.setState({
-          current: event.target.checked
-        });
-      }, _this._onSubmit = function (event) {
-        event.preventDefault();
-        var experienceData = {
-          company: _this.state.company,
-          title: _this.state.title,
-          location: _this.state.locationExperience,
-          from: _this.state.from,
-          to: _this.state.to,
-          current: _this.state.current,
-          description: _this.state.description
-        };
-        _this.props.addExperience(experienceData, _this.props.history);
-      }, _temp), _possibleConstructorReturn(_this, _ret);
+      return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = _class2.__proto__ || Object.getPrototypeOf(_class2)).call.apply(_ref, [this].concat(args))), _this), _this.state = {}, _temp), _possibleConstructorReturn(_this, _ret);
     }
 
     _createClass(_class2, [{
-      key: 'componentWillReceiveProps',
-      value: function componentWillReceiveProps(nextProps) {
-        if (nextProps.state.error !== this.props.state.error) {
-          this.setState({
-            errors: nextProps.state.error.errors
-          });
-        }
-      }
-    }, {
       key: 'render',
       value: function render() {
-        return _react2.default.createElement(WrappedComponent, _extends({}, this.state, this.props, {
-          _onChange: this._onChange,
-          _onSubmit: this._onSubmit,
-          _onCheckboxChange: this._onCheckboxChange
-        }));
+        return _react2.default.createElement(WrappedComponent, _extends({}, this.state, this.props));
       }
     }]);
 

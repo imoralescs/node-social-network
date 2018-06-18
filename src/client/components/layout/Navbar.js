@@ -31,6 +31,7 @@ class Navbar extends Component {
         return(
             <nav>
                 <div><Link to='/'>Home</Link></div>
+                <div><Link to='/profiles'>Profiles</Link></div>
                 { isAuthenticated ? authLinks : guestLinks }
             </nav>
         );

@@ -57,12 +57,33 @@ function profile(state, { type, payload = null}) {
                 loading: false
             }
         }
+        case 'GET_PROFILES': {
+            return {
+                ...state,
+                profiles: payload,
+                loading: false
+            }
+        }
         case 'CLEAR_CURRENT_PROFILE': {
             return {
                 ...state,
                 profile: null
             }
         }
+        default: {
+            return state;
+        }
+    }
+}
+
+function post(state, { type, payload = null }) {
+    state = state || {
+        posts: [],
+        post: {},
+        loading: false
+    }
+
+    switch(type) {
         default: {
             return state;
         }
@@ -87,5 +108,6 @@ function error(state, { type, payload = null}) {
 export default combineReducers({
     auth,
     profile,
+    post,
     error
 });

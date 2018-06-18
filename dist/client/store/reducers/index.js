@@ -79,6 +79,13 @@ function profile(state, _ref2) {
                     loading: false
                 });
             }
+        case 'GET_PROFILES':
+            {
+                return _extends({}, state, {
+                    profiles: payload,
+                    loading: false
+                });
+            }
         case 'CLEAR_CURRENT_PROFILE':
             {
                 return _extends({}, state, {
@@ -92,10 +99,29 @@ function profile(state, _ref2) {
     }
 }
 
-function error(state, _ref3) {
+function post(state, _ref3) {
     var type = _ref3.type,
         _ref3$payload = _ref3.payload,
         payload = _ref3$payload === undefined ? null : _ref3$payload;
+
+    state = state || {
+        posts: [],
+        post: {},
+        loading: false
+    };
+
+    switch (type) {
+        default:
+            {
+                return state;
+            }
+    }
+}
+
+function error(state, _ref4) {
+    var type = _ref4.type,
+        _ref4$payload = _ref4.payload,
+        payload = _ref4$payload === undefined ? null : _ref4$payload;
 
     state = state || {
         errors: null
@@ -116,5 +142,6 @@ function error(state, _ref3) {
 exports.default = (0, _redux.combineReducers)({
     auth: auth,
     profile: profile,
+    post: post,
     error: error
 });

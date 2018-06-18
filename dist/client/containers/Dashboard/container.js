@@ -26,6 +26,8 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
@@ -44,15 +46,36 @@ function mapDispatchToProps(dispatch) {
 
 function handlers(WrappedComponent) {
   return function (_React$Component) {
-    _inherits(_class, _React$Component);
+    _inherits(_class2, _React$Component);
 
-    function _class() {
-      _classCallCheck(this, _class);
+    function _class2() {
+      var _ref;
 
-      return _possibleConstructorReturn(this, (_class.__proto__ || Object.getPrototypeOf(_class)).apply(this, arguments));
+      var _temp, _this, _ret;
+
+      _classCallCheck(this, _class2);
+
+      for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+        args[_key] = arguments[_key];
+      }
+
+      return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = _class2.__proto__ || Object.getPrototypeOf(_class2)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
+        text: '',
+        errors: {}
+      }, _this._onChange = function (event) {
+        _this.setState(_defineProperty({}, event.target.name, event.target.value));
+      }, _this._onSubmit = function (event) {
+        event.preventDefault();
+
+        var postData = {
+          text: _this.state.text
+        };
+
+        _this.props.addPost(postData);
+      }, _temp), _possibleConstructorReturn(_this, _ret);
     }
 
-    _createClass(_class, [{
+    _createClass(_class2, [{
       key: 'componentDidMount',
       value: function componentDidMount() {
         this.props.getCurrentProfile();
@@ -60,6 +83,12 @@ function handlers(WrappedComponent) {
     }, {
       key: 'componentWillReceiveProps',
       value: function componentWillReceiveProps(nextProps) {
+        if (nextProps.state.error !== this.props.state.error) {
+          this.setState({
+            errors: nextProps.state.error.errors
+          });
+        }
+
         if (!nextProps.state.auth.isAuthenticated) {
           this.props.history.push('/login');
         }
@@ -67,11 +96,15 @@ function handlers(WrappedComponent) {
     }, {
       key: 'render',
       value: function render() {
-        return _react2.default.createElement(WrappedComponent, _extends({}, this.state, this.props));
+        console.log(this.props);
+        return _react2.default.createElement(WrappedComponent, _extends({}, this.state, this.props, {
+          _onChange: this._onChange,
+          _onSubmit: this._onSubmit
+        }));
       }
     }]);
 
-    return _class;
+    return _class2;
   }(_react2.default.Component);
 }
 

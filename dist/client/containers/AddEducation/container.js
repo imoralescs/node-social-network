@@ -63,18 +63,30 @@ function handlers(WrappedComponent) {
         school: '',
         degree: '',
         fieldofstudy: '',
-        from: '',
-        to: '',
+        from: '2001-05-05',
+        to: '2001-05-05',
         current: false,
         description: '',
         errors: {},
         disabled: false
       }, _this._onChange = function (event) {
         _this.setState(_defineProperty({}, event.target.name, event.target.value));
+      }, _this._onCheckboxChange = function (event) {
+        _this.setState({
+          current: event.target.checked
+        });
       }, _this._onSubmit = function (event) {
         event.preventDefault();
-
-        console.log('add experince');
+        var educationData = {
+          school: _this.state.school,
+          degree: _this.state.degree,
+          fieldofstudy: _this.state.fieldofstudy,
+          from: _this.state.from,
+          to: _this.state.to,
+          current: _this.state.current,
+          description: _this.state.description
+        };
+        _this.props.addEducation(educationData, _this.props.history);
       }, _temp), _possibleConstructorReturn(_this, _ret);
     }
 
@@ -90,10 +102,10 @@ function handlers(WrappedComponent) {
     }, {
       key: 'render',
       value: function render() {
-        console.log(this.props);
         return _react2.default.createElement(WrappedComponent, _extends({}, this.state, this.props, {
           _onChange: this._onChange,
-          _onSubmit: this._onSubmit
+          _onSubmit: this._onSubmit,
+          _onCheckboxChange: this._onCheckboxChange
         }));
       }
     }]);

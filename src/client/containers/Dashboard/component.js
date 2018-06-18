@@ -10,6 +10,11 @@ import AddEducation from '../AddEducation';
 export default function Dashboard(props) {
     const { profile, loading } = props.state.profile;
     const { user } = props.state.auth;
+    const {
+        text,
+        _onChange,
+        _onSubmit,
+        errors } = props;
     let dashboardContent;
 
     if(profile === null || loading) {
@@ -25,6 +30,21 @@ export default function Dashboard(props) {
                     <Link to={`/dashboard/add-experience`}>Add Expererience</Link>
                     <Link to={`/dashboard/add-education`}>Add Education</Link>
                     <Link to={`/dashboard/delete-profile`}>Delete Profile</Link>
+                    <div>
+                        <h2>Write a post</h2>
+                        <form onSubmit={_onSubmit}>
+                            <div>
+                                <label>Post text</label>
+                                <input 
+                                    type='text' 
+                                    name='text'
+                                    value={text}
+                                    onChange={_onChange} />
+                                <span>{ errors.text ? errors.text : '' }</span>
+                            </div>
+                            <input type='submit' />
+                        </form>
+                    </div>
                 </div>
             )
         }
