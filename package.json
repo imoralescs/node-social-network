@@ -4,9 +4,9 @@
   "description": "Node web app.",
   "main": "server.js",
   "scripts": {
-    "dev": "concurrently 'npm run build:client:dev' 'npm run build:server:dev' 'nodemon ./dist/server/server.js'",
+    "dev": "concurrently 'npm run build:client:dev' 'npm run build:server:dev' 'nodemon ./production/server/server.js'",
     "build:client:dev": "webpack --watch --config webpack.config.js --profile",
-    "build:server:dev": "babel src -d dist --copy-files --ignore '**/*.test.js' --watch"
+    "build:server:dev": "babel src/server -d production/server --copy-files --ignore '**/*.test.js' --watch"
   },
   "author": "Israel Morales <imoralescs@gmail.com>",
   "dependencies": {
@@ -42,10 +42,16 @@
     "babel-register": "^6.26.0",
     "clean-webpack-plugin": "^0.1.19",
     "concurrently": "^3.5.1",
+    "css-loader": "^0.28.11",
     "ejs": "^2.6.1",
+    "extract-loader": "^2.0.1",
+    "extract-text-webpack-plugin": "^4.0.0-beta.0",
     "html-webpack-plugin": "^3.2.0",
+    "node-sass": "^4.9.0",
     "nodemon": "^1.17.5",
     "regenerator-runtime": "^0.11.1",
+    "sass-loader": "^7.0.3",
+    "style-loader": "^0.21.0",
     "webpack": "^4.11.1",
     "webpack-command": "^0.2.0",
     "webpack-dev-server": "^3.1.4"

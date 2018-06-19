@@ -7,6 +7,7 @@ import App from './containers/App';
 import root from './store/reducers';
 import setAuthToken from './utility/setAuthToken';
 import { setCurrentUser, logoutUser, clearCurrentProfile } from './store/actions';
+import './scss/style.scss'
 
 const thunkMiddleware = ({ dispatch, getState }) => {
     return (next) => (action) =>
