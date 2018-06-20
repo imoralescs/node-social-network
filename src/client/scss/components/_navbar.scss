@@ -1,0 +1,31 @@
+.navbar {
+    height: 60px;
+    background: #5F98CD;
+    display: block;
+    line-height: 60px;
+    color: #FFF;
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,0.16), 0 0 0 1px rgba(0,0,0,0.08);
+
+    &__nav {
+        @include clearfix;
+        font-size: 0;
+        &--main {
+            float: left;
+        }
+
+        &--user {
+            float: right;
+        }
+
+        &-item {
+            display: inline-block;
+            font-size: 15px;
+            a {
+                text-decoration: none;
+                font-weight: bold;
+                padding: 12px;
+                color: #FFF;
+            }
+        }
+    }
+}

@@ -1,6 +1,7 @@
 import React from 'react';
 import Navbar from '../../components/layout/Navbar';
 import Footer from '../../components/layout/Footer';
+import Field from '../../components/form/Field';
 
 export default function Login(props) {
     const { 
@@ -11,20 +12,17 @@ export default function Login(props) {
         _onSubmit } = props;
         
     return (
-        <div>
+        <div className='app'>
             <Navbar { ...props } />
-            <div>
-                <h1>Login</h1>
-                <form onSubmit={_onSubmit}>
-                    <div>
-                        <label>email</label>
-                        <input 
-                            type='email' 
-                            name='email'
-                            value={email}
-                            onChange={_onChange} />
-                        <span>{ errors.email ? errors.email : '' }</span>
-                    </div>
+            <div className='main'>
+                <form onSubmit={_onSubmit} autoComplete='off'>
+                    <Field 
+                        type='email'
+                        label='Email'
+                        name='email'
+                        value={email}
+                        onChange={_onChange}
+                        errors={errors.email} />
                     <div>
                         <label>Password</label>
                         <input 

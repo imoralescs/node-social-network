@@ -4,7 +4,7 @@ import Footer from '../../components/layout/Footer';
 
 export default function Profile(props) {     
     return (
-        <div>
+        <div className='main'>
             <h1>Profile</h1>
         </div>
     )

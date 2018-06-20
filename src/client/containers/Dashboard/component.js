@@ -24,7 +24,7 @@ export default function Dashboard(props) {
         // Check if logged in user has profile
         if(Object.keys(profile).length > 0) {
             dashboardContent = (
-                <div>
+                <div className='main'>
                     <p>Welcome <Link to={`/profile/${profile.handle}`}>{user.name}</Link></p>
                     <Link to={`/dashboard/edit-profile`}>Edit Profile</Link>
                     <Link to={`/dashboard/add-experience`}>Add Expererience</Link>
@@ -51,7 +51,7 @@ export default function Dashboard(props) {
         else {
             // User is logged in but has no profile data
             dashboardContent = (
-                <div>
+                <div className='main'>
                     <p>Welcome {user.name}</p>
                     <p>You have not yet setup a profile, please add some info.</p>
                     <Link to='/dashboard/create-profile'>
@@ -63,7 +63,7 @@ export default function Dashboard(props) {
     }
     
     return (
-        <div>
+        <div className='app'>
             <Navbar { ...props } />
             <Switch>
                 <Route exact path='/dashboard' render={() => (dashboardContent)} />

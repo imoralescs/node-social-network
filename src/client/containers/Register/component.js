@@ -13,9 +13,9 @@ export default function Register(props) {
         _onSubmit } = props;
 
     return (
-        <div>
+        <div className='app'>
             <Navbar { ...props } />
-            <div>
+            <div className='main'>
                 <h1>Register</h1>
                 <form onSubmit={_onSubmit}>
                     <div>

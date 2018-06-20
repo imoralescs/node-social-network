@@ -24,10 +24,10 @@ export default function Profiles(props) {
     }
     
     return (
-        <div>
+        <div className='app'>
             <Navbar { ...props } />
             <Switch>
-                <Route exact path='/profiles' render={() => (<div>
+                <Route exact path='/profiles' render={() => (<div className='main'>
                     <h1>Developer Profiles</h1>
                     <p>Browse and connect with developers</p>
                     <ul>

@@ -5,11 +5,11 @@ class Navbar extends Component {
     render() {
         const { isAuthenticated, user } = this.props.state.auth;
         const authLinks = (
-            <ul>
-                <li>
+            <ul className='navbar__nav--user'>
+                <li className='navbar__nav-item'>
                     <span>{user.name}</span>
                 </li>
-                <li>
+                <li className='navbar__nav-item'>
                     <a href='#' onClick={event => {
                         event.preventDefault();
                         this.props.clearCurrentProfile();
@@ -19,19 +19,25 @@ class Navbar extends Component {
             </ul>
         );
         const guestLinks = (
-            <ul>
-                <li>
+            <ul className='navbar__nav--user'> 
+                <li className='navbar__nav-item'>
                     <Link to='/register'>Sign Up</Link>
                 </li>
-                <li>
+                <li className='navbar__nav-item'>
                     <Link to='/login'>Login</Link>
                 </li>
             </ul>
         );
         return(
-            <nav>
-                <div><Link to='/'>Home</Link></div>
-                <div><Link to='/profiles'>Profiles</Link></div>
+            <nav className='navbar'>
+                <ul className='navbar__nav--main'>
+                    <li className='navbar__nav-item'>
+                        <Link to='/'>Home</Link>
+                    </li>
+                    <li className='navbar__nav-item'>
+                        <Link to='/profiles'>Profiles</Link>
+                    </li>
+                </ul>
                 { isAuthenticated ? authLinks : guestLinks }
             </nav>
         );

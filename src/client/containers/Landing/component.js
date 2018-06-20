@@ -4,9 +4,11 @@ import Footer from '../../components/layout/Footer';
 
 export default function Landing(props) {
     return (
-        <div>
+        <div className='app'>
             <Navbar { ...props } />
-            <h1>Landing pages</h1>
+            <div className='main'>
+                <h1>Landing pages</h1>
+            </div>
             <Footer />
         </div>
     )

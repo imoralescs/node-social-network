@@ -1,0 +1,169 @@
+.field {
+    @include clearfix;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
+    background: #fff;
+    padding: 10px;
+    width: 250px;
+    &--full-width {
+      width: 100%;
+    }
+  }
+  
+  .field {
+    @include clearfix;
+    clear: both;
+    margin-bottom: 10px;
+    position: relative;
+  }
+  
+  .field__label, .field__content {
+    @include clearfix;
+    display: block;
+    float: left;
+  }
+  
+  .field__label--left {
+    @include clearfix;
+    box-sizing: border-box;
+    padding: 8px 8px 8px 0;
+    width: 35%;
+  }
+  
+  .field__label--top {
+    @include clearfix;
+    box-sizing: border-box;
+    padding: 8px 8px 8px 0;
+    width: 100%;
+    font-weight: bold;
+  }
+  
+  .field__content--left {
+    @include clearfix;
+    width: 65%;
+  }
+  
+  .field__content--top {
+    @include clearfix;
+    width: 100%;
+  }
+  
+  .field__autocomplete-list {
+    list-style-type: none;
+      position: absolute;
+      margin: 0;
+      padding: 0;
+      bottom: -109px;
+      background: #FFF;
+      width: 100%;
+      z-index: 1;
+      border: 1px solid #dbe6ec;
+  }
+  
+  .field__autocomplete-item {
+        padding: 4px;
+  }
+  
+  .input__container {
+    @include clearfix;
+    position: relative;
+  }
+  
+  .field .input {
+    @include clearfix;
+    float: left;
+  }
+  
+  .input {
+      -webkit-transition: background 0.3s ease;
+      transition: background 0.3s ease;
+      background-color: #f4f8fc;
+      border: 1px solid #dbe6ec;
+      color: #3b444f;
+      padding: 8px 10px;
+      width: 100%;
+  }
+  
+  .accessibility {
+      border: 0;
+      clip: rect(0, 0, 0, 0);
+      height: 1px;
+      margin: -1px;
+      overflow: hidden;
+      padding: 0;
+      position: absolute;
+      width: 1px;
+  }
+  
+  .dropdown {
+    position: relative;
+  }
+  
+  .dropdown__value {
+    word-wrap: break-word;
+    background-color: #f4f8fc;
+    border: 1px solid #dbe6ec;
+    display: block;
+    padding: 8px 10px;
+    text-overflow: ellipsis;
+    text-align: left;
+    white-space: nowrap;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
+  }
+  
+  .dropdown__select {
+    -webkit-appearance: menulist-button;
+    -moz-appearance: menulist-button;
+    appearance: menulist-button;
+    font-size: 16px;
+    height: 100%;
+    left: 0;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    
+    option {
+      font-weight: normal;
+      display: block;
+      white-space: pre;
+      min-height: 1.2em;
+      padding: 0px 2px 1px;
+    }
+  }
+  
+  .custom-input--artist {
+    @include clearfix;
+    .input {
+      float: none;
+      width: 40px;
+    }
+    
+  }
+  
+  .custom-input--artist__title {
+    @include clearfix;
+      display: inline-block;
+      font-size: 14px;
+      width: 50%;
+  }
+  
+  .custom-input--artist__delete {
+    @include clearfix;
+    display: inline-block;
+    float: right;
+    vertical-align: top;
+  }
+  
+  .custom-input--artist__sub-title {
+    @include clearfix;
+    display: inline-block;
+    width: 50%;
+    font-size: 14px;
+    vertical-align: top;
+    margin: 14px 0;
+    padding: 0 4px 0 0;
+    line-height: 2;
+    float: left;
+  }
