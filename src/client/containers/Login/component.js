@@ -23,16 +23,14 @@ export default function Login(props) {
                         value={email}
                         onChange={_onChange}
                         errors={errors.email} />
-                    <div>
-                        <label>Password</label>
-                        <input 
-                            type='password' 
-                            name='password'
-                            value={password}
-                            onChange={_onChange} />
-                        <span>{ errors.password ? errors.password : '' }</span>
-                    </div>
-                    <input type='submit' />
+                    <Field 
+                        type='password'
+                        label='Password'
+                        name='password'
+                        value={password}
+                        onChange={_onChange}
+                        errors={errors.password} />
+                    <input className='primary-btn' type='submit' />
                 </form>
             </div>
             <Footer />

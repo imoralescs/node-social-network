@@ -1,6 +1,7 @@
 import React from 'react';
 import Navbar from '../../components/layout/Navbar';
 import Footer from '../../components/layout/Footer';
+import Field from '../../components/form/Field';
 
 export default function Register(props) {
     const {
@@ -16,45 +17,36 @@ export default function Register(props) {
         <div className='app'>
             <Navbar { ...props } />
             <div className='main'>
-                <h1>Register</h1>
                 <form onSubmit={_onSubmit}>
-                    <div>
-                        <label>name</label>
-                        <input 
-                            type='text' 
-                            name='name' 
-                            value={name}
-                            onChange={_onChange} />
-                        <span>{ errors.name ? errors.name : '' }</span>
-                    </div>
-                    <div>
-                        <label>email</label>
-                        <input 
-                            type='email' 
-                            name='email'
-                            value={email}
-                            onChange={_onChange} />
-                        <span>{ errors.email ? errors.email : '' }</span>
-                    </div>
-                    <div>
-                        <label>Password</label>
-                        <input 
-                            type='password' 
-                            name='password'
-                            value={password}
-                            onChange={_onChange} />
-                        <span>{ errors.password ? errors.password : '' }</span>
-                    </div>
-                    <div>
-                        <label>Confirm Password</label>
-                        <input 
-                            type='password' 
-                            name='password2'
-                            value={password2}
-                            onChange={_onChange} />
-                        <span>{ errors.password2 ? errors.password2 : '' }</span>
-                    </div>
-                    <input type='submit' />
+                    <Field 
+                        type='text'
+                        label='Name'
+                        name='name'
+                        value={name}
+                        onChange={_onChange}
+                        errors={errors.name} />
+                    <Field 
+                        type='email'
+                        label='Email'
+                        name='email'
+                        value={email}
+                        onChange={_onChange}
+                        errors={errors.email} />
+                    <Field 
+                        type='password'
+                        label='Password'
+                        name='password'
+                        value={password}
+                        onChange={_onChange}
+                        errors={errors.password} />
+                    <Field 
+                        type='password'
+                        label='Confirm Password'
+                        name='password2'
+                        value={password2}
+                        onChange={_onChange}
+                        errors={errors.password2} />
+                    <input className='primary-btn' type='submit' />
                 </form>
             </div>
             <Footer />

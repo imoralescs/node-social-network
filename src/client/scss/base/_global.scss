@@ -104,3 +104,24 @@ img {
 .main, .navbar, .footer {
     flex-shrink: 0;
 }
+
+.primary-btn {
+	background-color: #5F98CD;
+    cursor: pointer;
+    display: inline-block;
+    line-height: 2rem;
+    position: relative;
+    text-align: center;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    border: none;
+    outline: none;
+    border: 0px solid #aaa;
+    border-bottom: 1px solid #e0e0e0;
+    font-weight: 600;
+	margin: 0 0 0 10px;
+	color: #FFF;
+	min-width: 120px;
+}
