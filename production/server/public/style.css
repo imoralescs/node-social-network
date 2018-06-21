@@ -36,7 +36,7 @@ input[type=submit] {
   cursor: pointer; }
 
 input:-webkit-autofill {
-  -webkit-box-shadow: 0 0 0 30px #f4f8fc inset !important; }
+  -webkit-box-shadow: 0 0 0 30px #fafafa inset !important; }
 
 /* Mobile Overrides */
 * {
@@ -124,11 +124,11 @@ img {
 
 .field {
   zoom: 1;
-  font-family: 'Open Sans', sans-serif;
   font-size: 14px;
   background: #fff;
   padding: 10px;
-  width: 250px; }
+  width: 250px;
+  color: #333333; }
   .field:before, .field:after {
     content: " ";
     display: block;
@@ -252,8 +252,8 @@ img {
 .input {
   -webkit-transition: background 0.3s ease;
   transition: background 0.3s ease;
-  background-color: #f4f8fc;
-  border: 1px solid #dbe6ec;
+  background-color: #fafafa;
+  border: 1px solid #d8d8d8;
   color: #3b444f;
   padding: 8px 10px;
   width: 100%; }
