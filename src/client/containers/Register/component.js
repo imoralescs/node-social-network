@@ -17,7 +17,8 @@ export default function Register(props) {
         <div className='app'>
             <Navbar { ...props } />
             <div className='main'>
-                <form onSubmit={_onSubmit}>
+                <form className='form' onSubmit={_onSubmit}>
+                    <h1 className='form__header'>Create Your Account</h1>
                     <Field 
                         type='text'
                         label='Name'

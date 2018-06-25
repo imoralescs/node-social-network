@@ -98,7 +98,12 @@ img {
 }
 
 .main {
-    flex-grow: 1;
+	flex-grow: 1;
+	background-color: #e9ebee;
+	&__header {
+		margin: 22px 0;
+		text-align: center;
+	}
 }
 
 .main, .navbar, .footer {
@@ -124,4 +129,57 @@ img {
 	margin: 0 0 0 10px;
 	color: #FFF;
 	min-width: 120px;
+}
+
+.landing {
+	&__header {
+		color: #FFF;
+		text-shadow: 6px 6px 0px rgba(0,0,0,0.2);
+		font-size: 60px;
+		text-align: center;
+		margin: 100px;
+	}
+}
+
+.profiles-container {
+	max-width: 1012px;
+    display: block;
+    margin: 40px auto;
+    background: #FFF;
+    padding: 18px;
+    border-radius: 4px;
+	box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+	
+	&__header {
+		margin: 0 0 10px;
+	}
+
+	&__text {
+		margin: -4px 0 10px;
+	}
+}
+
+.profile-media-object {
+	padding: 20px 25px;
+    display: table;
+    width: 100%;
+    margin: 0 0 10px;
+	box-shadow: 0px 4px 8px 0px #d8d4d4;
+	border: 1px solid #ddd;
+	&__images {
+		width: 50px;
+		height: 50px;
+		margin: 0 20px 0 0;
+		display: inline-block;
+		vertical-align: top;
+		overflow: hidden;
+		border-radius: 50%;
+	}
+
+	&__detail {
+		display: inline-block;
+		font-size: 20px;
+		color: #333333;
+		vertical-align: top;
+	}
 }

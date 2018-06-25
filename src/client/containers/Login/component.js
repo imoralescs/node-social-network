@@ -15,7 +15,8 @@ export default function Login(props) {
         <div className='app'>
             <Navbar { ...props } />
             <div className='main'>
-                <form onSubmit={_onSubmit} autoComplete='off'>
+                <form className='form' onSubmit={_onSubmit} autoComplete='off'>
+                    <h1 className='form__header'>Login to your Account</h1>
                     <Field 
                         type='email'
                         label='Email'

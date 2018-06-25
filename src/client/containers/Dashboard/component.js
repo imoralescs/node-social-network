@@ -7,6 +7,15 @@ import EditProfile from '../EditProfile';
 import AddExperience from '../AddExperience';
 import AddEducation from '../AddEducation';
 
+const ISOToDate = iso => {
+    let 
+        inter = iso.split("T"),
+        newStr = inter[0].split("-").join("/") + " " + inter[1].split(".")[0] + " GMT",
+        newDate = new Date(newStr),
+        newFormat = (1 + newDate.getUTCMonth()) + "/" + newDate.getUTCDate() + "/" + newDate.getFullYear();
+    return newFormat;
+}
+
 export default function Dashboard(props) {
     const { profile, loading } = props.state.profile;
     const { user } = props.state.auth;
@@ -23,14 +32,33 @@ export default function Dashboard(props) {
     else {
         // Check if logged in user has profile
         if(Object.keys(profile).length > 0) {
+            let experience, education;
+            if(profile.experience.length > 0) {
+                experience = profile.experience.map(exp => (
+                    <div>
+                        <p>{exp.title}</p>
+                        <p>{exp.company}</p>
+                        <p><span>{ISOToDate(exp.from)}</span> - <span>{ISOToDate(exp.to)}</span></p>
+                        <p>{exp.description}</p>
+                    </div>
+                ));
+            }
+
+            if(profile.education.length > 0) {
+                education = profile.education.map(edu => (
+                    <div>
+                        <p>{edu.degree}</p>
+                        <p>{edu.school}</p>
+                        <p>{edu.fieldofstudy}</p>
+                        <p><span>{ISOToDate(edu.from)}</span> - <span>{ISOToDate(edu.to)}</span></p>
+                        <p>{edu.description}</p>
+                    </div>
+                ));
+            }
+
             dashboardContent = (
                 <div className='main'>
-                    <p>Welcome <Link to={`/profile/${profile.handle}`}>{user.name}</Link></p>
-                    <Link to={`/dashboard/edit-profile`}>Edit Profile</Link>
-                    <Link to={`/dashboard/add-experience`}>Add Expererience</Link>
-                    <Link to={`/dashboard/add-education`}>Add Education</Link>
-                    <Link to={`/dashboard/delete-profile`}>Delete Profile</Link>
-                    <div>
+                    <div className='profiles-container'>
                         <h2>Write a post</h2>
                         <form onSubmit={_onSubmit}>
                             <div>
@@ -44,6 +72,30 @@ export default function Dashboard(props) {
                             </div>
                             <input type='submit' />
                         </form>
+                    </div>
+                    <div className='profiles-container'>
+                        <div>
+                            <div>
+                                <img src={user.avatar} />
+                            </div>
+                        </div>
+                        <div>
+                            <p>Welcome <Link to={`/profile/${profile.handle}`}>{user.name}</Link></p>
+                        </div>
+                        <div>
+                            <Link to={`/dashboard/edit-profile`}>Edit Profile</Link>
+                            <Link to={`/dashboard/add-experience`}>Add Expererience</Link>
+                            <Link to={`/dashboard/add-education`}>Add Education</Link>
+                            <Link to={`/dashboard/delete-profile`}>Delete Profile</Link>
+                        </div>
+                        <div>
+                            <h2>Expererience</h2>
+                            {experience}
+                        </div>
+                        <div>
+                            <h2>Education</h2>
+                            {education}
+                        </div>
                     </div>
                 </div>
             )

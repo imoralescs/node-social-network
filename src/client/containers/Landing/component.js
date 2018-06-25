@@ -7,7 +7,9 @@ export default function Landing(props) {
         <div className='app'>
             <Navbar { ...props } />
             <div className='main'>
-                <h1>Landing pages</h1>
+                <div className='landing'>
+                    <h1 className='landing__header'>Developer Connection</h1>
+                </div>
             </div>
             <Footer />
         </div>
