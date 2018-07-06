@@ -1,10 +1,10 @@
 .navbar {
-    height: 60px;
+    height: 50px;
     background: #5F98CD;
     display: block;
-    line-height: 60px;
+    line-height: 50px;
     color: #FFF;
-    box-shadow: 0 2px 2px 0 rgba(0,0,0,0.16), 0 0 0 1px rgba(0,0,0,0.08);
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.16), 0 0 0 1px rgba(0, 0, 0, 0.08);
 
     &__nav {
         @include clearfix;

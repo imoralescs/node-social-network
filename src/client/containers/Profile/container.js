@@ -19,7 +19,7 @@ function handlers(WrappedComponent) {
     state = {
 
     }
-     
+    
     render() {
       return (
         <WrappedComponent

@@ -39,6 +39,7 @@ function auth(state, { type, payload = null }) {
 function profile(state, { type, payload = null}) {
     state = state || {
         profile: null,
+        currentProfile: null,
         profiles: null,
         loading: false
     }
@@ -54,6 +55,13 @@ function profile(state, { type, payload = null}) {
             return {
                 ...state,
                 profile: payload,
+                loading: false
+            }
+        }
+        case 'GET_CURRENT_PROFILE': {
+            return {
+                ...state,
+                currentProfile: payload,
                 loading: false
             }
         }

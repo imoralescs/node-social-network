@@ -17,7 +17,9 @@ const ISOToDate = iso => {
 }
 
 export default function Dashboard(props) {
-    const { profile, loading } = props.state.profile;
+    const { currentProfile, loading } = props.state.profile;
+    console.log(currentProfile);
+    const profile = currentProfile;
     const { user } = props.state.auth;
     const {
         text,
@@ -35,23 +37,23 @@ export default function Dashboard(props) {
             let experience, education;
             if(profile.experience.length > 0) {
                 experience = profile.experience.map(exp => (
-                    <div>
-                        <p>{exp.title}</p>
-                        <p>{exp.company}</p>
-                        <p><span>{ISOToDate(exp.from)}</span> - <span>{ISOToDate(exp.to)}</span></p>
-                        <p>{exp.description}</p>
+                    <div className='experience'>
+                        <p className='experience__title'>{exp.title}</p>
+                        <p className='experience__company'>{exp.company}</p>
+                        <p className='experience__date'><span>{ISOToDate(exp.from)}</span> - <span>{ISOToDate(exp.to)}</span></p>
+                        <p className='experience__description'>{exp.description}</p>
                     </div>
                 ));
             }
 
             if(profile.education.length > 0) {
                 education = profile.education.map(edu => (
-                    <div>
-                        <p>{edu.degree}</p>
-                        <p>{edu.school}</p>
-                        <p>{edu.fieldofstudy}</p>
-                        <p><span>{ISOToDate(edu.from)}</span> - <span>{ISOToDate(edu.to)}</span></p>
-                        <p>{edu.description}</p>
+                    <div className='education'>
+                        <p className='education__degree'>{edu.degree}</p>
+                        <p className='education__school'>{edu.school}</p>
+                        <p className='education__study'>{edu.fieldofstudy}</p>
+                        <p className='education__date'><span>{ISOToDate(edu.from)}</span> - <span>{ISOToDate(edu.to)}</span></p>
+                        <p className='education__description'>{edu.description}</p>
                     </div>
                 ));
             }
@@ -60,34 +62,37 @@ export default function Dashboard(props) {
                 <div className='main'>
                     <div className='profiles-container'>
                         <h2>Write a post</h2>
-                        <form onSubmit={_onSubmit}>
-                            <div>
-                                <label>Post text</label>
-                                <input 
-                                    type='text' 
-                                    name='text'
-                                    value={text}
-                                    onChange={_onChange} />
+                        <form className='profile__post-form' onSubmit={_onSubmit}>
+                            <div className='profile__textarea'>
+                                <textarea name='text' className='profile__textarea-field' value={text} onChange={_onChange} />
                                 <span>{ errors.text ? errors.text : '' }</span>
                             </div>
-                            <input type='submit' />
+                            <input className='primary-btn' style={{ margin : '0'}} type='submit' />
                         </form>
                     </div>
                     <div className='profiles-container'>
-                        <div>
-                            <div>
+                        <div className='profile__avatar'>
+                            <div className='profile__avatar-img'>
                                 <img src={user.avatar} />
                             </div>
                         </div>
-                        <div>
+                        <div className='profile__welcome'>
                             <p>Welcome <Link to={`/profile/${profile.handle}`}>{user.name}</Link></p>
                         </div>
-                        <div>
-                            <Link to={`/dashboard/edit-profile`}>Edit Profile</Link>
-                            <Link to={`/dashboard/add-experience`}>Add Expererience</Link>
-                            <Link to={`/dashboard/add-education`}>Add Education</Link>
-                            <Link to={`/dashboard/delete-profile`}>Delete Profile</Link>
-                        </div>
+                        <ul className='profile__edit-buttons'>
+                            <li className='profile__edit-button-item'>
+                                <Link className='edit-btn' to={`/dashboard/edit-profile`}>Edit Profile</Link>
+                            </li>
+                            <li className='profile__edit-button-item'>
+                                <Link className='edit-btn' to={`/dashboard/add-experience`}>Add Expererience</Link>
+                            </li>
+                            <li className='profile__edit-button-item'>
+                                <Link className='edit-btn' to={`/dashboard/add-education`}>Add Education</Link>
+                            </li>
+                            <li className='profile__edit-button-item'>
+                                <Link className='edit-btn' to={`/dashboard/delete-profile`}>Delete Profile</Link>
+                            </li>
+                        </ul>
                         <div>
                             <h2>Expererience</h2>
                             {experience}

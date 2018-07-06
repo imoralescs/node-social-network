@@ -145,11 +145,11 @@ export const getCurrentProfile = () => dispatch => {
     axios
         .get(`${url.development}/api/profile`)
         .then(response => dispatch({
-            type: 'GET_PROFILE',
+            type: 'GET_CURRENT_PROFILE',
             payload: response.data
         }))
         .catch(error => dispatch({
-            type: 'GET_PROFILE',
+            type: 'GET_CURRENT_PROFILE',
             payload: {}
         }));
 }
