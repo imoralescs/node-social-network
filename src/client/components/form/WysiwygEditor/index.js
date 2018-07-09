@@ -1,14 +1,9 @@
 import React, { Component } from 'react';
 import ContentEditable from './ContentEditable';
 
-class WysiwygEditor extends Component {
-	state = {
-  	html:''
-  }
-  
+class WysiwygEditor extends Component {  
   changeText = (event) => {
   	event.preventDefault();
-    console.log(event.target.dataset)
     const {role, style} = event.target.dataset;
     if(typeof style !== 'undefined') {
     	document.execCommand(role, false, style);
@@ -17,16 +12,11 @@ class WysiwygEditor extends Component {
     	document.execCommand(role, false);
     }
   }
-  
-  handleChange = (event) => {
-    this.setState({html: event.target.value});
-	}
-  
-	
+  	
   render() {
     return (
   	<div className="wysiwyg-editor">
-      <div className="wysiwyg-controls">
+      <div className="wysiwyg-editor__controls">
         <a href='javascript:void(0);' onClick={this.changeText} data-role='bold'>B</a>
         <a href='javascript:void(0);' onClick={this.changeText} data-role='italic'>I</a>
         <a href='javascript:void(0);' onClick={this.changeText} data-role='underline'>U</a>
@@ -38,7 +28,7 @@ class WysiwygEditor extends Component {
         <a href='javascript:void(0);' onClick={this.changeText} data-role='justifycenter'><i className="menu-center"></i></a>
         <a href='javascript:void(0);' onClick={this.changeText} data-role='justifyright'><i className="menu-right"></i></a>
       </div>
-      <ContentEditable class='wysiwyg-content' html={this.state.html} onChange={this.handleChange} />
+      <ContentEditable class='wysiwyg-editor__content' name={this.props.name} onChange={this.props.onChange} />
     </div>
   )
   }

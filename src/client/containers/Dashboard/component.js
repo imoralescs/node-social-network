@@ -38,7 +38,7 @@ export default function Dashboard(props) {
             let experience, education;
             if(profile.experience.length > 0) {
                 experience = profile.experience.map(exp => (
-                    <div className='experience'>
+                    <div key={exp._id} className='experience'>
                         <p className='experience__title'>{exp.title}</p>
                         <p className='experience__company'>{exp.company}</p>
                         <p className='experience__date'><span>{ISOToDate(exp.from)}</span> - <span>{ISOToDate(exp.to)}</span></p>
@@ -49,7 +49,7 @@ export default function Dashboard(props) {
 
             if(profile.education.length > 0) {
                 education = profile.education.map(edu => (
-                    <div className='education'>
+                    <div key={edu._id} className='education'>
                         <p className='education__degree'>{edu.degree}</p>
                         <p className='education__school'>{edu.school}</p>
                         <p className='education__study'>{edu.fieldofstudy}</p>
@@ -64,11 +64,12 @@ export default function Dashboard(props) {
                     <div className='profiles-container'>
                         <h2>Write a post</h2>
                         <form className='profile__post-form' onSubmit={_onSubmit}>
-                            <div className='profile__textarea'>
-                                <textarea name='text' className='profile__textarea-field' value={text} onChange={_onChange} />
-                                <span>{ errors.text ? errors.text : '' }</span>
+                            <div className='field__content field__content--top'>
+                                <div className='input__container'>
+                                    <WysiwygEditor html={html} onChange={_onChange} name='html'/>
+                                    <span className='field__error'>{ errors.text ? errors.text : '' }</span>
+                                </div>
                             </div>
-                            <WysiwygEditor html={html} />
                             <input className='primary-btn' style={{ margin : '0'}} type='submit' />
                         </form>
                     </div>
@@ -120,7 +121,7 @@ export default function Dashboard(props) {
             )
         }
     }
-    
+
     return (
         <div className='app'>
             <Navbar { ...props } />
