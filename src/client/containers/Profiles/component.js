@@ -5,7 +5,6 @@ import Footer from '../../components/layout/Footer';
 import Profile from '../Profile';
 
 export default function Profiles(props) { 
-    console.log(props.state.profile.profiles);
     let profileItems;
     
     if(props.state.profile.profiles === null) {
@@ -14,7 +13,7 @@ export default function Profiles(props) {
     else {
         if(props.state.profile.profiles.length > 0) {
             profileItems = props.state.profile.profiles.map(profile => (<li key={profile._id}>
-                <Link className='profile-media-object' to='/profiles/view'>
+                <Link className='profile-media-object' to={`/profiles/view/${profile.handle}`}>
                     <div className='profile-media-object__images'>
                         <img src={profile.user.avatar} />
                     </div>
@@ -42,7 +41,7 @@ export default function Profiles(props) {
                         </ul>
                     </div>
                 </div>)} />
-                <Route path='/profiles/view' component={Profile} />
+                <Route path='/profiles/view/:handle' component={Profile} />
             </Switch>
             <Footer />
         </div>

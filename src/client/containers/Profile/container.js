@@ -19,8 +19,14 @@ function handlers(WrappedComponent) {
     state = {
 
     }
+
+    componentDidMount() {
+
+      this.props.getProfile(this.props.match.params.handle);
+    }
     
     render() {
+
       return (
         <WrappedComponent
           {...this.state}

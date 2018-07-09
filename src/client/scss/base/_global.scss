@@ -237,56 +237,74 @@ img {
 }
 
 .experience {
-	border: 1px solid #dee2e6;
+	border-bottom: 1px solid #dee2e6;
     margin: 10px 0;
-    padding: 4px 10px;
+    padding: 10px 0;
 	position: relative;
+	&:last-child {
+		border-bottom: 1px solid transparent;
+	}
 	
 	&__title {
-		font-size: 18px;
-		font-weight: bold;
-		line-height: 1;
+		font-size: 16px;
+		font-weight: 600;
+		line-height: 24px;
+		color: rgba(0,0,0,.9);
 	}
 
 	&__company {
-		font-style: italic;
-    	font-size: 14px;
+		font-size: 16px;
+		line-height: 24px;
+		font-weight: 400;
+		color: rgba(0,0,0,.9);
 	}
 
 	&__date {
-		font-size: 14px;
 		padding: 8px 0;
 		position: absolute;
 		top: 0;
 		right: 10px;
 		font-style: italic;
+		font-size: 14px;
+		color: rgba(0,0,0,.75);
 	}
 
 	&__description {
-		font-size: 16px;
-    	padding: 10px 0;
+		padding: 10px 0;
+		font-size: 14px;
+		color: rgba(0,0,0,.75);
 	}
 }
 
 .education {
-	border: 1px solid #dee2e6;
+	border-bottom: 1px solid #dee2e6;
     margin: 10px 0;
-    padding: 4px 10px;
+    padding: 10px 0;
 	position: relative;
+	&:last-child {
+		border-bottom: 1px solid transparent;
+	}
 	&__degree {
-		font-size: 18px;
-		font-weight: bold;
-		line-height: 1;
+		font-size: 16px;
+		font-weight: 600;
+		line-height: 24px;
+		color: rgba(0,0,0,.9);
 	}
 
 	&__school {
-		font-size: 14px;
+		font-size: 16px;
+		line-height: 24px;
+		font-weight: 400;
+		color: rgba(0,0,0,.9);
 		display: inline-block;
 		vertical-align: top;
 	}
 
 	&__study {
-		font-size: 14px;
+		font-size: 16px;
+		line-height: 24px;
+		font-weight: 400;
+		color: rgba(0,0,0,.9);
 		display: inline-block;
 		vertical-align: top;
 		&::before {
@@ -296,16 +314,98 @@ img {
 	}
 
 	&__date {
-		font-size: 14px;
 		padding: 8px 0;
 		position: absolute;
 		top: 0;
 		right: 10px;
 		font-style: italic;
+		font-size: 14px;
+		color: rgba(0,0,0,.75);
 	}
 
 	&__description {
-		font-size: 16px;
-    	padding: 10px 0;
+		padding: 10px 0;
+		font-size: 14px;
+		color: rgba(0,0,0,.75);
 	}
 }
+
+.wysiwyg-editor {
+	display: block;
+	width: 400px;
+	margin: 100px auto 0;
+  }
+  
+  .wysiwyg-controls {
+	display: block;
+	width: 100%;
+	height: 35px;
+	border: 1px solid #C2CACF;
+	border-bottom: none;
+	border-radius: 3px 3px 0 0;
+	background: #fff;
+  }
+  .wysiwyg-controls a {
+	display: inline-block;
+	width: 35px;
+	height: 35px;
+	vertical-align: top;
+	line-height: 38px;
+	text-decoration: none;
+	text-align: center;
+	cursor: pointer;
+	color: #ADB5B9;
+  }
+  .wysiwyg-controls [data-role="bold"] {
+	font-weight: bold;
+  }
+  .wysiwyg-controls [data-role="italic"] {
+	font-style: italic;
+  }
+  .wysiwyg-controls [data-role="underline"] {
+	text-decoration: underline;
+  }
+  
+  [class^="menu"], [class^="menu"]:before, [class^="menu"]:after {
+	position: relative;
+	top: 48%;
+	display: block;
+	width: 65%;
+	height: 2px;
+	margin: 0 auto;
+	background: #ADB5B9;
+  }
+  [class^="menu"]:before {
+	content: '';
+	top: -5px;
+	width: 80%;
+  }
+  [class^="menu"]:after {
+	content: '';
+	top: 3px;
+	width: 80%;
+  }
+  
+  .menu-left:before, .menu-left:after {
+	margin-right: 4px;
+  }
+  
+  .menu-right:before, .menu-right:after {
+	margin-left: 4px;
+  }
+  
+  .wysiwyg-content {
+	max-width: 100%;
+	  width: 100%;
+	  height: auto;
+	  min-height: 120px;
+	  padding: 12px;
+	  resize: both;
+	  overflow: auto;
+	  font-family: Helvetica, sans-serif;
+	  font-size: 12px;
+	  border: 1px solid #dee2e6;
+	  border-radius: 0 0 3px 3px;
+	  background-color: #fafafa;
+  }
+  

@@ -2,6 +2,7 @@ import React from 'react';
 import { Link, Switch, Route } from 'react-router-dom';
 import Navbar from '../../components/layout/Navbar';
 import Footer from '../../components/layout/Footer';
+import WysiwygEditor from '../../components/form/WysiwygEditor';
 import CreateProfile from '../CreateProfile';
 import EditProfile from '../EditProfile';
 import AddExperience from '../AddExperience';
@@ -18,11 +19,11 @@ const ISOToDate = iso => {
 
 export default function Dashboard(props) {
     const { currentProfile, loading } = props.state.profile;
-    console.log(currentProfile);
     const profile = currentProfile;
     const { user } = props.state.auth;
     const {
         text,
+        html,
         _onChange,
         _onSubmit,
         errors } = props;
@@ -67,6 +68,7 @@ export default function Dashboard(props) {
                                 <textarea name='text' className='profile__textarea-field' value={text} onChange={_onChange} />
                                 <span>{ errors.text ? errors.text : '' }</span>
                             </div>
+                            <WysiwygEditor html={html} />
                             <input className='primary-btn' style={{ margin : '0'}} type='submit' />
                         </form>
                     </div>
@@ -77,7 +79,7 @@ export default function Dashboard(props) {
                             </div>
                         </div>
                         <div className='profile__welcome'>
-                            <p>Welcome <Link to={`/profile/${profile.handle}`}>{user.name}</Link></p>
+                            <p>Welcome <Link to={`/profiles/view/${profile.handle}`}>{user.name}</Link></p>
                         </div>
                         <ul className='profile__edit-buttons'>
                             <li className='profile__edit-button-item'>

@@ -3,7 +3,7 @@ import Navbar from '../../components/layout/Navbar';
 import Footer from '../../components/layout/Footer';
 
 export default function Profile(props) {
-    console.log(props);     
+    console.log(props.state.profile.profile);     
     return (
         <div className='main'>
             <div className='profiles-container'>

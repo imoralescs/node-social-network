@@ -154,6 +154,21 @@ export const getCurrentProfile = () => dispatch => {
         }));
 }
 
+// Get profile
+export const getProfile = (handle) => dispatch => {
+    dispatch(setProfileLoading());
+    axios
+        .get(`${url.development}/api/profile/handle/${handle}`)
+        .then(response => dispatch({
+            type: 'GET_PROFILE',
+            payload: response.data
+        }))
+        .catch(error => dispatch({
+            type: 'GET_PROFILE',
+            payload: {}
+        }));
+}
+
 // Get all profiles
 export const getProfiles = () => dispatch => {
     dispatch(setProfileLoading());

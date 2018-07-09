@@ -18,6 +18,7 @@ function handlers(WrappedComponent) {
   return class extends React.Component {
     state = {
       text: '',
+      html: '',
       errors: {}
     } 
     
@@ -54,7 +55,6 @@ function handlers(WrappedComponent) {
   }
     
     render() {
-      console.log(this.props)
       return (
         <WrappedComponent
           {...this.state}
