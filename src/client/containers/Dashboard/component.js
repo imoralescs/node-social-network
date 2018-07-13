@@ -2,20 +2,13 @@ import React from 'react';
 import { Link, Switch, Route } from 'react-router-dom';
 import Navbar from '../../components/layout/Navbar';
 import Footer from '../../components/layout/Footer';
+import Experience from '../../components/Experience';
+import Education from '../../components/Education';
 import WysiwygEditor from '../../components/form/WysiwygEditor';
 import CreateProfile from '../CreateProfile';
 import EditProfile from '../EditProfile';
 import AddExperience from '../AddExperience';
 import AddEducation from '../AddEducation';
-
-const ISOToDate = iso => {
-    let 
-        inter = iso.split("T"),
-        newStr = inter[0].split("-").join("/") + " " + inter[1].split(".")[0] + " GMT",
-        newDate = new Date(newStr),
-        newFormat = (1 + newDate.getUTCMonth()) + "/" + newDate.getUTCDate() + "/" + newDate.getFullYear();
-    return newFormat;
-}
 
 export default function Dashboard(props) {
     const { currentProfile, loading } = props.state.profile;
@@ -38,24 +31,13 @@ export default function Dashboard(props) {
             let experience, education;
             if(profile.experience.length > 0) {
                 experience = profile.experience.map(exp => (
-                    <div key={exp._id} className='experience'>
-                        <p className='experience__title'>{exp.title}</p>
-                        <p className='experience__company'>{exp.company}</p>
-                        <p className='experience__date'><span>{ISOToDate(exp.from)}</span> - <span>{ISOToDate(exp.to)}</span></p>
-                        <p className='experience__description'>{exp.description}</p>
-                    </div>
+                    <Experience key={exp._id} {...exp} />
                 ));
             }
 
             if(profile.education.length > 0) {
                 education = profile.education.map(edu => (
-                    <div key={edu._id} className='education'>
-                        <p className='education__degree'>{edu.degree}</p>
-                        <p className='education__school'>{edu.school}</p>
-                        <p className='education__study'>{edu.fieldofstudy}</p>
-                        <p className='education__date'><span>{ISOToDate(edu.from)}</span> - <span>{ISOToDate(edu.to)}</span></p>
-                        <p className='education__description'>{edu.description}</p>
-                    </div>
+                    <Education key={edu._id} {...edu} />
                 ));
             }
 
