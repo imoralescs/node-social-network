@@ -1,4 +1,6 @@
 import React from 'react';
+import Field from '../../components/form/Field';
+import Textarea from '../../components/form/Textarea';
 
 export default function AddExperience(props) { 
     const {
@@ -16,58 +18,49 @@ export default function AddExperience(props) {
         errors } = props;
 
     return (
-        <div>
-            <h1>Add Experience</h1>
-            <form onSubmit={_onSubmit}>
-                <div>
-                    <label>company</label>
-                    <input 
-                        type='text' 
+        <div className='main'>
+            <div className='profiles-container'>
+                <h1>Add Experience</h1>
+                <form onSubmit={_onSubmit}>
+                    <Field 
+                        type='text'
+                        label='Company'
                         name='company'
                         value={company}
-                        onChange={_onChange} />
-                    <span>{ errors.company ? errors.company : '' }</span>
-                </div>
-                <div>
-                    <label>title</label>
-                    <input 
-                        type='text' 
+                        onChange={_onChange}
+                        errors={errors.company} />
+                    <Field 
+                        type='text'
+                        label='Title'
                         name='title'
                         value={title}
-                        onChange={_onChange} />
-                    <span>{ errors.title ? errors.title : '' }</span>
-                </div>
-                <div>
-                    <label>location</label>
-                    <input 
-                        type='text' 
+                        onChange={_onChange}
+                        errors={errors.title} />
+                    <Field 
+                        type='text'
+                        label='Location'
                         name='locationExperience'
                         value={locationExperience}
                         onChange={_onChange} />
-                    <span></span>
-                </div>
-                <div>
-                    <label>current
-                    <input 
-                        type='checkbox' 
-                        name='current'
-                        checked={current}
-                        value={current}
-                        onChange={_onCheckboxChange} />
-                    </label>
-                    <span></span>
-                </div>
-                <div>
-                    <label>description
-                        <textarea 
-                            value={description} 
-                            onChange={_onChange} 
-                            name='description' />
-                    </label>
-                    <span></span>
-                </div>
-                <input type='submit' />
-            </form>
+                    <div>
+                        <label>current
+                        <input 
+                            type='checkbox' 
+                            name='current'
+                            checked={current}
+                            value={current}
+                            onChange={_onCheckboxChange} />
+                        </label>
+                        <span></span>
+                    </div>
+                    <Textarea
+                        label='Description'
+                        onChange={_onChange}
+                        value={description}
+                        name='description' />
+                    <input type='submit' />
+                </form>
+            </div>
         </div>
     )
 }

@@ -20,19 +20,19 @@ function handlers(WrappedComponent) {
   return class extends React.Component { 
     state = {
         displaySocialInput: false,
-        handle: this.props.state.profile.profile.handle || '',
-        company: this.props.state.profile.profile.company || '',
-        website: this.props.state.profile.profile.website || '',
-        profileLocation: this.props.state.profile.profile.location || '',
-        status: this.props.state.profile.profile.status || 'developer',
-        skills: this.props.state.profile.profile.skills.join(',') || '',
-        githubusername: this.props.state.profile.profile.githubusername || '',
-        bio: this.props.state.profile.profile.bio || '',
-        twitter: this.props.state.profile.profile.twitter || '',
-        facebook: this.props.state.profile.profile.facebook || '',
-        linkedin: this.props.state.profile.profile.linkedin || '',
-        youtube: this.props.state.profile.profile.youtube || '',
-        instagram: this.props.state.profile.profile.instagram || '',
+        handle: this.props.state.profile.currentProfile.handle || '',
+        company: this.props.state.profile.currentProfile.company || '',
+        website: this.props.state.profile.currentProfile.website || '',
+        profileLocation: this.props.state.profile.currentProfile.location || '',
+        status: this.props.state.profile.currentProfile.status || 'developer',
+        skills: this.props.state.profile.currentProfile.skills.join(',') || '',
+        githubusername: this.props.state.profile.currentProfile.githubusername || '',
+        bio: this.props.state.profile.currentProfile.bio || '',
+        twitter: this.props.state.profile.currentProfile.twitter || '',
+        facebook: this.props.state.profile.currentProfile.facebook || '',
+        linkedin: this.props.state.profile.currentProfile.linkedin || '',
+        youtube: this.props.state.profile.currentProfile.youtube || '',
+        instagram: this.props.state.profile.currentProfile.instagram || '',
         errors: {}
     }
         

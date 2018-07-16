@@ -320,6 +320,95 @@ img {
     border-radius: 0 0 3px 3px;
     background-color: #fafafa; }
 
+.dropdown {
+  position: relative;
+  font-size: 13px;
+  background: #fff;
+  padding: 10px;
+  width: 100%;
+  color: #333333;
+  zoom: 1; }
+  .dropdown:before, .dropdown:after {
+    content: " ";
+    display: block;
+    height: 0;
+    overflow: hidden; }
+  .dropdown:after {
+    clear: both; }
+  .dropdown__label {
+    zoom: 1;
+    display: block;
+    float: left; }
+    .dropdown__label:before, .dropdown__label:after {
+      content: " ";
+      display: block;
+      height: 0;
+      overflow: hidden; }
+    .dropdown__label:after {
+      clear: both; }
+  .dropdown__label--left {
+    zoom: 1;
+    box-sizing: border-box;
+    padding: 8px 8px 8px 0;
+    width: 35%; }
+    .dropdown__label--left:before, .dropdown__label--left:after {
+      content: " ";
+      display: block;
+      height: 0;
+      overflow: hidden; }
+    .dropdown__label--left:after {
+      clear: both; }
+  .dropdown__label--top {
+    zoom: 1;
+    box-sizing: border-box;
+    padding: 8px 8px 8px 0;
+    width: 100%;
+    font-weight: bold;
+    float: none; }
+    .dropdown__label--top:before, .dropdown__label--top:after {
+      content: " ";
+      display: block;
+      height: 0;
+      overflow: hidden; }
+    .dropdown__label--top:after {
+      clear: both; }
+  .dropdown__header {
+    transition: background 0.3s ease;
+    background-color: #fafafa;
+    border: 1px solid #d8d8d8;
+    color: #3b444f;
+    padding: 8px 10px;
+    width: 100%;
+    zoom: 1; }
+    .dropdown__header:before, .dropdown__header:after {
+      content: " ";
+      display: block;
+      height: 0;
+      overflow: hidden; }
+    .dropdown__header:after {
+      clear: both; }
+  .dropdown__list {
+    zoom: 1;
+    transition: background 0.3s ease;
+    background-color: #fafafa;
+    border: 1px solid #d8d8d8;
+    border-top: 0;
+    color: #3b444f;
+    width: calc(100% - 20px);
+    position: absolute;
+    z-index: 2; }
+    .dropdown__list:before, .dropdown__list:after {
+      content: " ";
+      display: block;
+      height: 0;
+      overflow: hidden; }
+    .dropdown__list:after {
+      clear: both; }
+    .dropdown__list-item {
+      padding: 6px 10px; }
+      .dropdown__list-item:hover {
+        background-color: #ffffff; }
+
 .navbar {
   height: 50px;
   background: #5F98CD;
@@ -506,6 +595,8 @@ img {
   color: #3b444f;
   padding: 8px 10px;
   width: 100%; }
+  .input--text-area {
+    height: 200px; }
 
 .accessibility {
   border: 0;

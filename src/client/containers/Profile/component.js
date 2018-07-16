@@ -3,14 +3,13 @@ import Navbar from '../../components/layout/Navbar';
 import Footer from '../../components/layout/Footer';
 import Experience from '../../components/Experience';
 import Education from '../../components/Education';
+import Loader from '../../components/Loader';
 
 export default function Profile(props) {
     const { profile, loading } = props.state.profile;
     if(profile === null || loading) {
         return(
-            <div className='main'>
-                <h1>Loading</h1>
-            </div>
+            <Loader />
         )
     }
     else {

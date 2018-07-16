@@ -1,4 +1,6 @@
 import React from 'react';
+import Field from '../../components/form/Field';
+import Textarea from '../../components/form/Textarea';
 
 export default function AddEducation(props) { 
     console.log(props); 
@@ -17,58 +19,50 @@ export default function AddEducation(props) {
         errors } = props;
 
     return (
-        <div>
-            <h1>Add Education</h1>
-            <form onSubmit={_onSubmit}>
-                <div>
-                    <label>school</label>
-                    <input 
-                        type='text' 
+        <div className='main'>
+            <div className='profiles-container'>
+                <h1>Add Education</h1>
+                <form onSubmit={_onSubmit}>
+                    <Field 
+                        type='text'
+                        label='School'
                         name='school'
                         value={school}
-                        onChange={_onChange} />
-                    <span>{ errors.school ? errors.school : '' }</span>
-                </div>
-                <div>
-                    <label>degree</label>
-                    <input 
-                        type='text' 
+                        onChange={_onChange}
+                        errors={errors.school} />
+                    <Field 
+                        type='text'
+                        label='Degree'
                         name='degree'
                         value={degree}
-                        onChange={_onChange} />
-                    <span>{ errors.degree ? errors.degree : '' }</span>
-                </div>
-                <div>
-                    <label>field of study</label>
-                    <input 
-                        type='text' 
+                        onChange={_onChange}
+                        errors={errors.degree} />
+                    <Field 
+                        type='text'
+                        label='Field of Study'
                         name='fieldofstudy'
                         value={fieldofstudy}
-                        onChange={_onChange} />
-                    <span>{ errors.fieldofstudy ? errors.fieldofstudy : '' }</span>
-                </div>
-                <div>
-                    <label>current
-                    <input 
-                        type='checkbox' 
-                        name='current'
-                        checked={current}
-                        value={current}
-                        onChange={_onCheckboxChange} />
-                    </label>
-                    <span></span>
-                </div>
-                <div>
-                    <label>description
-                        <textarea 
-                            value={description} 
-                            onChange={_onChange} 
+                        onChange={_onChange}
+                        errors={errors.fieldofstudy} />
+                    <div>
+                        <label>current
+                            <input 
+                                type='checkbox' 
+                                name='current'
+                                checked={current}
+                                value={current}
+                                onChange={_onCheckboxChange} />
+                        </label>
+                        <span></span>
+                    </div>
+                    <Textarea
+                            label='Description'
+                            onChange={_onChange}
+                            value={description}
                             name='description' />
-                    </label>
-                    <span></span>
-                </div>
-                <input type='submit' />
-            </form>
+                    <input className='primary-btn' type='submit' />
+                </form>
+            </div>
         </div>
     )
 }

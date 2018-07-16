@@ -1,4 +1,7 @@
 import React from 'react';
+import Field from '../../components/form/Field';
+import Dropdown from '../../components/form/Dropdown';
+import Textarea from '../../components/form/Textarea';
 
 export default function CreateProfile(props) { 
     console.log(props); 
@@ -26,51 +29,36 @@ export default function CreateProfile(props) {
     if(displaySocialInput) {
         socialInputs = (
             <div>
-                <div>
-                    <label>facebook</label>
-                    <input 
-                        type='text' 
-                        name='facebook'
-                        value={facebook}
-                        onChange={_onChange} />
-                    <span></span>
-                </div>
-                <div>
-                    <label>twitter</label>
-                    <input 
-                        type='text' 
-                        name='twitter'
-                        value={twitter}
-                        onChange={_onChange} />
-                    <span></span>
-                </div>
-                <div>
-                    <label>linkedid</label>
-                    <input 
-                        type='text' 
-                        name='linkedid'
-                        value={linkedid}
-                        onChange={_onChange} />
-                    <span></span>
-                </div>
-                <div>
-                    <label>youtube</label>
-                    <input 
-                        type='text' 
-                        name='youtube'
-                        value={youtube}
-                        onChange={_onChange} />
-                    <span></span>
-                </div>
-                <div>
-                    <label>instagram</label>
-                    <input 
-                        type='text' 
-                        name='instagram'
-                        value={instagram}
-                        onChange={_onChange} />
-                    <span></span>
-                </div>
+                <Field 
+                    type='text'
+                    label='Facebook'
+                    name='facebook'
+                    value={facebook}
+                    onChange={_onChange} />
+                <Field 
+                    type='text'
+                    label='Twitter'
+                    name='twitter'
+                    value={twitter}
+                    onChange={_onChange} />
+                <Field 
+                    type='text'
+                    label='LinkedId'
+                    name='linkedid'
+                    value={linkedid}
+                    onChange={_onChange} />
+                <Field 
+                    type='text'
+                    label='Youtube'
+                    name='youtube'
+                    value={youtube}
+                    onChange={_onChange} />
+                <Field 
+                    type='text'
+                    label='Instagram'
+                    name='instagram'
+                    value={instagram}
+                    onChange={_onChange} />
             </div>
         );
     }
@@ -79,80 +67,65 @@ export default function CreateProfile(props) {
     }
 
     return (
-        <div>
-            <h1>Edit Profile</h1>
-            <form onSubmit={_onSubmit}>
-                <div>
-                    <label>handle</label>
-                    <input 
-                        type='text' 
-                        name='handle'
-                        value={handle}
-                        onChange={_onChange} />
-                    <span>{ errors.handle ? errors.handle : '' }</span>
-                </div>
-                <div>
-                    <label>status</label>
-                    <select value={status} onChange={_onChange}>
-                        <option value='developer'>Developer</option>
-                    </select>
-                    <span>{ errors.status ? errors.status : '' }</span>
-                </div>
-                <div>
-                    <label>company</label>
-                    <input 
-                        type='text' 
-                        name='company'
-                        value={company}
-                        onChange={_onChange} />
-                    <span></span>
-                </div>
-                <div>
-                    <label>website</label>
-                    <input 
-                        type='text' 
-                        name='website'
-                        value={website}
-                        onChange={_onChange} />
-                    <span></span>
-                </div>
-                <div>
-                    <label>location</label>
-                    <input 
-                        type='text' 
-                        name='profileLocation'
-                        value={profileLocation}
-                        onChange={_onChange} />
-                    <span></span>
-                </div>
-                <div>
-                    <label>skills</label>
-                    <input 
-                        type='text' 
-                        name='skills'
-                        value={skills}
-                        onChange={_onChange} />
-                    <span>{ errors.skills ? errors.skills : '' }</span>
-                </div>
-                <div>
-                    <label>github username</label>
-                    <input 
-                        type='text' 
-                        name='githubusername'
-                        value={githubusername}
-                        onChange={_onChange} />
-                    <span></span>
-                </div>
-                <div>
-                    <label>bio
-                        <textarea value={bio} onChange={_onChange} name='bio' />
-                    </label>
-                    <span></span>
-                </div>
-                <button type='button' onClick={_addSocialLink}>Add Social Links</button>
-                {socialInputs}
-                <input type='submit' value='Update' />
-            </form>
+        <div className='main'>
+            <div className='profiles-container'>
+                <h2>Edit Profile</h2>
+                <form onSubmit={_onSubmit}>
+                    <Field 
+                            type='text'
+                            label='Handle'
+                            name='handle'
+                            value={handle}
+                            onChange={_onChange}
+                            errors={errors.handle} />
+                    <Dropdown 
+                        label='Status'
+                        name='status'
+                        value={status}
+                        onChange={_onChange}
+                        errors={errors.status}
+                        />
+                    <Field 
+                            type='text'
+                            label='Company'
+                            name='company'
+                            value={company}
+                            onChange={_onChange} />
+                    <Field 
+                            type='text'
+                            label='Website'
+                            name='website'
+                            value={website}
+                            onChange={_onChange} />
+                    <Field 
+                            type='text'
+                            label='Location'
+                            name='profileLocation'
+                            value={profileLocation}
+                            onChange={_onChange} />
+                    <Field 
+                            type='text'
+                            label='Skills'
+                            name='skills'
+                            value={skills}
+                            onChange={_onChange}
+                            errors={errors.skills} />
+                    <Field 
+                            type='text'
+                            label='Github Username'
+                            name='githubusername'
+                            value={githubusername}
+                            onChange={_onChange} />
+                    <Textarea
+                        label='Bio'
+                        onChange={_onChange}
+                        value={bio}
+                        name='bio' />
+                    <button type='button' className='primary-btn' onClick={_addSocialLink}>Add Social Links</button>
+                    {socialInputs}
+                    <input className='primary-btn' type='submit' value='Update' />
+                </form>
+            </div>
         </div>
     )
 }

@@ -9,6 +9,7 @@ import CreateProfile from '../CreateProfile';
 import EditProfile from '../EditProfile';
 import AddExperience from '../AddExperience';
 import AddEducation from '../AddEducation';
+import Loader from '../../components/Loader';
 
 export default function Dashboard(props) {
     const { currentProfile, loading } = props.state.profile;
@@ -23,7 +24,7 @@ export default function Dashboard(props) {
     let dashboardContent;
 
     if(profile === null || loading) {
-        dashboardContent = <h1>Loading</h1>
+        dashboardContent = <Loader />
     }
     else {
         // Check if logged in user has profile
