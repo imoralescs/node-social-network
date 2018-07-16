@@ -80,7 +80,7 @@ export default function CreateProfile(props) {
 
     return (
         <div>
-            <h1>Create Profile</h1>
+            <h2 className='profiles-container__header'>Create Profile</h2>
             <form onSubmit={_onSubmit}>
                 <div>
                     <label>handle</label>

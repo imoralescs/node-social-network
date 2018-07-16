@@ -42,11 +42,15 @@ export default function Profile(props) {
                         <h1>{user.name}</h1>
                     </div>
                     <div>
-                        <h2>Expererience</h2>
+                        <h2 className='profiles-container__sub-header'>Biography</h2>
+                        <p className='profile__paragraph'>{profile.bio}</p>
+                    </div>
+                    <div>
+                        <h2 className='profiles-container__sub-header'>Expererience</h2>
                         {experience}
                     </div>
                     <div>
-                        <h2>Education</h2>
+                        <h2 className='profiles-container__sub-header'>Education</h2>
                         {education}
                     </div>
                 </div>

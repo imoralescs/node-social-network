@@ -1,6 +1,7 @@
 import React from 'react';
 import Field from '../../components/form/Field';
 import Textarea from '../../components/form/Textarea';
+import Checkbox from '../../components/form/Checkbox';
 
 export default function AddEducation(props) { 
     console.log(props); 
@@ -21,7 +22,7 @@ export default function AddEducation(props) {
     return (
         <div className='main'>
             <div className='profiles-container'>
-                <h1>Add Education</h1>
+                <h2 className='profiles-container__header'>Add Education</h2>
                 <form onSubmit={_onSubmit}>
                     <Field 
                         type='text'
@@ -44,17 +45,10 @@ export default function AddEducation(props) {
                         value={fieldofstudy}
                         onChange={_onChange}
                         errors={errors.fieldofstudy} />
-                    <div>
-                        <label>current
-                            <input 
-                                type='checkbox' 
-                                name='current'
-                                checked={current}
-                                value={current}
-                                onChange={_onCheckboxChange} />
-                        </label>
-                        <span></span>
-                    </div>
+                    <Checkbox 
+                        label='Current'
+                        value={current}
+                        onChange={_onCheckboxChange} />
                     <Textarea
                             label='Description'
                             onChange={_onChange}

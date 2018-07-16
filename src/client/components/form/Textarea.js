@@ -5,7 +5,7 @@ const Textarea = (props) => (
         <label className='field__label field__label--top'>{props.label}</label>
         <div className='field__content field__content--top'>
             <div className='input__container'>
-                <textarea className='input input--text-area' cols="40" maxLength="20" value={props.value} onChange={props.onChange} name={props.name} />
+                <textarea className='input input--text-area' cols="40" maxLength="200" value={props.value} onChange={props.onChange} name={props.name} />
             </div>
         </div>
     </div>

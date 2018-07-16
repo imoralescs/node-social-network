@@ -3,7 +3,7 @@ import React from 'react';
 const Loader = () => {
     return(
         <div className='main'>
-            <h1>Loading</h1>
+            <div className="ring-animation"></div>
         </div>
     )
 }

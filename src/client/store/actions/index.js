@@ -204,7 +204,7 @@ export const addExperience = (experienceData, history) => dispatch => {
         .post(`${url.development}/api/profile/experience`, experienceData)
         .then(response => {
             dispatch({
-                type: 'GET_PROFILE',
+                type: 'GET_CURRENT_PROFILE',
                 payload: response.data
             });
             return response;
@@ -225,7 +225,7 @@ export const addEducation = (educationData, history) => dispatch => {
         .post(`${url.development}/api/profile/education`, educationData)
         .then(response => {
             dispatch({
-                type: 'GET_PROFILE',
+                type: 'GET_CURRENT_PROFILE',
                 payload: response.data
             });
             return response;

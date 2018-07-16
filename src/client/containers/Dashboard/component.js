@@ -63,7 +63,7 @@ export default function Dashboard(props) {
                             </div>
                         </div>
                         <div className='profile__welcome'>
-                            <p>Welcome <Link to={`/profiles/view/${profile.handle}`}>{user.name}</Link></p>
+                            <p className='profile__paragraph'>Welcome <Link to={`/profiles/view/${profile.handle}`}>{user.name}</Link></p>
                         </div>
                         <ul className='profile__edit-buttons'>
                             <li className='profile__edit-button-item'>
@@ -80,11 +80,15 @@ export default function Dashboard(props) {
                             </li>
                         </ul>
                         <div>
-                            <h2>Expererience</h2>
+                            <h2 className='profiles-container__sub-header'>Biography</h2>
+                            <p className='profile__paragraph'>{profile.bio}</p>
+                        </div>
+                        <div>
+                            <h2 className='profiles-container__sub-header'>Expererience</h2>
                             {experience}
                         </div>
                         <div>
-                            <h2>Education</h2>
+                            <h2 className='profiles-container__sub-header'>Education</h2>
                             {education}
                         </div>
                     </div>
