@@ -148,10 +148,29 @@ img {
 }
 
 .landing {
+	&__hero {
+		text-align: center;
+		position: relative;
+		height: auto;
+		padding-bottom: 80px;
+		background: #765B90;
+		background-size: cover;
+		color: #fff;
+		overflow: hidden;
+	}
+
 	&__header {
 		color: #FFF;
 		text-shadow: 6px 6px 0px rgba(0,0,0,0.2);
 		font-size: 60px;
+		text-align: center;
+		margin: 100px;
+	}
+
+	&__sub-header {
+		color: #FFF;
+		text-shadow: 6px 6px 0px rgba(0,0,0,0.2);
+		font-size: 40px;
 		text-align: center;
 		margin: 100px;
 	}

@@ -119,10 +119,27 @@ img {
   margin: 0;
   background-color: #F38A8A; }
 
+.landing__hero {
+  text-align: center;
+  position: relative;
+  height: auto;
+  padding-bottom: 80px;
+  background: #765B90;
+  background-size: cover;
+  color: #fff;
+  overflow: hidden; }
+
 .landing__header {
   color: #FFF;
   text-shadow: 6px 6px 0px rgba(0, 0, 0, 0.2);
   font-size: 60px;
+  text-align: center;
+  margin: 100px; }
+
+.landing__sub-header {
+  color: #FFF;
+  text-shadow: 6px 6px 0px rgba(0, 0, 0, 0.2);
+  font-size: 40px;
   text-align: center;
   margin: 100px; }
 

@@ -7,14 +7,10 @@ export default function Landing(props) {
     return (
         <div className='app'>
             <Navbar { ...props } />
-            <div className='main main__background'>
-                <div className='landing'>
-                    <h1 className='landing__header'>Developer Connection</h1>
-                    <div className='landing__image'>
-                        <img src={svgCommunity} />
-                    </div>
-                </div>
-            </div>
+            <section className='landing__hero'>
+                <h1 className='landing__header'>Connection</h1>
+                <h2 className='landing__sub-header'>Join and create connection between coworker</h2>
+            </section>
             <Footer />
         </div>
     )
