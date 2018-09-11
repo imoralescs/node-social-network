@@ -45,10 +45,10 @@ import initPassport from './config/passport';
 initPassport(passport);
 
 // Set routes
-app.use('/', index);
 app.use('/api/users', users);
 app.use('/api/profile', profile);
 app.use('/api/posts', posts);
+app.use('/', index); // Always on the end to catch all
 
 //-- Logs
 app.listen(PORT, HOST);

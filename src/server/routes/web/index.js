@@ -9,10 +9,11 @@ const router = express.Router();
 // @route GET /
 // @description Display index
 // @access Public
-router.get('/', async (req, res) => {
+router.get('/*', async (req, res) => {
    //const initialContent = await serverRender(req, res);
    //res.render('index', { ...initialContent });
    
+   console.log(req.url)
    const initialContent = {
        initialMarkup: {},
        initialData: {}

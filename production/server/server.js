@@ -85,10 +85,10 @@ app.use(_passport2.default.initialize());
 (0, _passport4.default)(_passport2.default);
 
 // Set routes
-app.use('/', _index2.default);
 app.use('/api/users', _users2.default);
 app.use('/api/profile', _profile2.default);
 app.use('/api/posts', _posts2.default);
+app.use('/', _index2.default); // Always on the end to catch all
 
 //-- Logs
 app.listen(PORT, HOST);

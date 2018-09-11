@@ -31,7 +31,7 @@ var router = _express2.default.Router();
 // @route GET /
 // @description Display index
 // @access Public
-router.get('/', function () {
+router.get('/*', function () {
    var _ref = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime2.default.mark(function _callee(req, res) {
       var initialContent;
       return _regeneratorRuntime2.default.wrap(function _callee$(_context) {
@@ -41,6 +41,7 @@ router.get('/', function () {
                   //const initialContent = await serverRender(req, res);
                   //res.render('index', { ...initialContent });
 
+                  console.log(req.url);
                   initialContent = {
                      initialMarkup: {},
                      initialData: {}
@@ -48,7 +49,7 @@ router.get('/', function () {
 
                   res.render('index', _extends({}, initialContent));
 
-               case 2:
+               case 3:
                case 'end':
                   return _context.stop();
             }
