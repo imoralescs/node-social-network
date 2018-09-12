@@ -242,8 +242,10 @@ export const addEducation = (educationData, history) => dispatch => {
 
 // Add Post
 export const addPost = (postData) => dispatch => {
+    console.log(postData)
+    const { text } = postData
     axios
-        .post(`${url.development}/api/posts`, postData)
+        .post(`${url.development}/api/posts`, { text })
         .then(response => {
             dispatch({
                 type: 'ADD_POST',
