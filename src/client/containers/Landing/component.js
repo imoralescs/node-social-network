@@ -9,7 +9,7 @@ export default function Landing(props) {
             <Navbar { ...props } />
             <section className='landing__hero'>
                 <h1 className='landing__header'>Connection</h1>
-                <h2 className='landing__sub-header'>Join and create connection between coworker</h2>
+                <h2 className='landing__sub-header'>Connection between developer</h2>
             </section>
             <Footer />
         </div>

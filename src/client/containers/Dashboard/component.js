@@ -45,18 +45,6 @@ export default function Dashboard(props) {
             dashboardContent = (
                 <div className='main'>
                     <div className='profiles-container'>
-                        <h2>Write a post</h2>
-                        <form className='profile__post-form' onSubmit={_onSubmit}>
-                            <div className='field__content field__content--top'>
-                                <div className='input__container'>
-                                    <WysiwygEditor html={html} onChange={_onChange} name='html'/>
-                                    <span className='field__error'>{ errors.text ? errors.text : '' }</span>
-                                </div>
-                            </div>
-                            <input className='primary-btn' style={{ margin : '0'}} type='submit' />
-                        </form>
-                    </div>
-                    <div className='profiles-container'>
                         <div className='profile__avatar'>
                             <div className='profile__avatar-img'>
                                 <img src={user.avatar} />
@@ -91,6 +79,18 @@ export default function Dashboard(props) {
                             <h2 className='profiles-container__sub-header'>Education</h2>
                             {education}
                         </div>
+                    </div>
+                    <div className='profiles-container'>
+                        <h2>Write a blog post</h2>
+                        <form className='profile__post-form' onSubmit={_onSubmit}>
+                            <div className='field__content field__content--top'>
+                                <div className='input__container'>
+                                    <WysiwygEditor html={html} onChange={_onChange} name='html'/>
+                                    <span className='field__error'>{ errors.text ? errors.text : '' }</span>
+                                </div>
+                            </div>
+                            <input className='primary-btn' style={{ margin : '0'}} type='submit' />
+                        </form>
                     </div>
                 </div>
             )
