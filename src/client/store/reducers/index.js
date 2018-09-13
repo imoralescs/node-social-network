@@ -87,11 +87,17 @@ function profile(state, { type, payload = null}) {
 function post(state, { type, payload = null }) {
     state = state || {
         posts: [],
-        post: {},
         loading: false
     }
 
     switch(type) {
+        case 'GET_POSTS': {
+            return {
+                ...state,
+                posts: payload,
+                loading: false
+            }
+        }
         default: {
             return state;
         }

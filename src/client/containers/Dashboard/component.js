@@ -80,18 +80,6 @@ export default function Dashboard(props) {
                             {education}
                         </div>
                     </div>
-                    <div className='profiles-container'>
-                        <h2>Write a peep post</h2>
-                        <form className='profile__post-form' onSubmit={_onSubmit}>
-                            <div className='field__content field__content--top'>
-                                <div className='input__container'>
-                                    <WysiwygEditor html={html} onChange={_onChange} name='text'/>
-                                    <span className='field__error'>{ errors.text ? errors.text : '' }</span>
-                                </div>
-                            </div>
-                            <input className='primary-btn' style={{ margin : '0'}} type='submit' />
-                        </form>
-                    </div>
                 </div>
             )
         }

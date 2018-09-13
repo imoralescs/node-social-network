@@ -7,7 +7,10 @@ class Navbar extends Component {
         const authLinks = (
             <ul className='navbar__nav--user'>
                 <li className='navbar__nav-item'>
-                    <span>{user.name}</span>
+                    <a href='/feed'>Feed</a>
+                </li>
+                <li className='navbar__nav-item'>
+                    <a href='/'>{user.name}</a>
                 </li>
                 <li className='navbar__nav-item'>
                     <a href='#' onClick={event => {

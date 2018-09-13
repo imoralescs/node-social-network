@@ -258,3 +258,18 @@ export const addPost = (postData) => dispatch => {
             payload: error.response.data
         }));
 }
+
+// Get Posts
+export const getPosts = () => dispatch => {
+    axios
+        .get(`${url.development}/api/posts`)
+        .then(response => {
+            console.log(response)
+            dispatch({
+                type: 'GET_POSTS',
+                payload: response.data
+            })
+            return response;
+        })
+        .catch(error => console.log(error));
+}
